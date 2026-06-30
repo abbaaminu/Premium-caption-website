@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 
 export default function Pricing() {
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false);
-  const [customerEmail, setCustomerEmail] = useState('abbaaminub@gmail.com');
+  const [customerEmail, setCustomerEmail] = useState('tukurmuhammed902@gmail.com');
   const [paymentStep, setPaymentStep] = useState<'checkout' | 'processing' | 'success'>('checkout');
   const [cardNumber, setCardNumber] = useState('4242 •••• •••• 4242');
   const [cardExpiry, setCardExpiry] = useState('12/28');
@@ -45,7 +45,7 @@ export default function Pricing() {
 
   const downloadLicenseFile = () => {
     const element = document.createElement("a");
-    const fileContent = `=== PREMIUM LIVE CAPTION PLAYER LICENSE ===\nLicense Key: ${licenseKey}\nOwner Email: ${customerEmail}\nProduct: Premium Monthly Plan ($1/Month)\nStatus: ACTIVE\nIssued On: 2026-06-30\nSupport Contact: abbaaminub@gmail.com\n============================================`;
+    const fileContent = `=== PREMIUM LIVE CAPTION PLAYER LICENSE ===\nLicense Key: ${licenseKey}\nOwner Email: ${customerEmail}\nProduct: Premium Monthly Plan ($1/Month)\nStatus: ACTIVE\nIssued On: 2026-06-30\nSupport Contact: tukurmuhammed902@gmail.com\n============================================`;
     const file = new Blob([fileContent], {type: 'text/plain'});
     element.href = URL.createObjectURL(file);
     element.download = "Premium_Live_Caption_License.lic";
@@ -84,7 +84,7 @@ export default function Pricing() {
       },
       custom_data: {
         app_name: "Premium Live Caption Player",
-        merchant_support_email: "abbaaminub@gmail.com",
+        merchant_support_email: "tukurmuhammed902@gmail.com",
         customer_provided_email: customerEmail,
         authorized_license: paymentStep === 'success' ? "GR-PREM-ACTIVATED" : "PENDING_VERIFICATION"
       }
@@ -222,7 +222,7 @@ export default function Pricing() {
         <div className="mt-12 text-center max-w-xl mx-auto space-y-2">
           <div className="flex items-center justify-center gap-2 text-xs text-gray-400 dark:text-slate-500 font-mono">
             <Shield className="h-4 w-4 text-sky-500" />
-            <span>Paddle Onboarding Compliant • abbaaminub@gmail.com</span>
+            <span>Paddle Onboarding Compliant • tukurmuhammed902@gmail.com</span>
           </div>
           <p className="text-xs text-gray-500 dark:text-slate-400">
             Secure payments processed via Paddle. Subscriptions are billed exactly at $1/month and can be canceled anytime via the billing link or by writing to support.
@@ -271,7 +271,7 @@ export default function Pricing() {
                       Premium Live Caption Player
                     </h3>
                     <p className="text-xs text-gray-500 dark:text-slate-400 mt-1">
-                      Merchant Account operator: <span className="font-semibold text-gray-700 dark:text-slate-300">abbaaminub@gmail.com</span>
+                      Merchant Account operator: <span className="font-semibold text-gray-700 dark:text-slate-300">tukurmuhammed902@gmail.com</span>
                     </p>
                   </div>
 

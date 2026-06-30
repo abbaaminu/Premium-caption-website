@@ -152,18 +152,18 @@ export default function Footer({ navigateTo }: FooterProps) {
                 <span>OFFICIAL MERCHANT COMPLIANCE STATEMENT</span>
               </div>
               <p className="text-[11px] text-gray-400 leading-normal">
-                "Premium Live Caption Player" is proudly operated and managed by our developer merchant account at <span className="text-white font-semibold">abbaaminub@gmail.com</span>. Subscriptions are billed on a monthly recurring schedule at exactly $1.00 USD. Checkouts, invoice drafting, and subscription state webhooks are routed securely through Paddle. No credit card details are ever stored locally.
+                "Premium Live Caption Player" is proudly operated and managed by our developer merchant account at <span className="text-white font-semibold">tukurmuhammed902@gmail.com</span>. Subscriptions are billed on a monthly recurring schedule at exactly $1.00 USD. Checkouts, invoice drafting, and subscription state webhooks are routed securely through Paddle. No credit card details are ever stored locally.
               </p>
             </div>
 
             <div className="md:col-span-4 flex flex-col md:items-end gap-1.5 border-t md:border-t-0 md:border-l border-white/5 pt-4 md:pt-0 md:pl-6">
               <span className="text-[10px] font-mono text-gray-500 uppercase">Support Mailbox</span>
               <a 
-                href="mailto:abbaaminub@gmail.com" 
+                href="mailto:tukurmuhammed902@gmail.com" 
                 className="flex items-center gap-1.5 text-xs text-sky-400 hover:text-sky-300 font-bold transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                <span>abbaaminub@gmail.com</span>
+                <span>tukurmuhammed902@gmail.com</span>
               </a>
             </div>
 

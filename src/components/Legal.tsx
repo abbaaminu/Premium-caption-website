@@ -95,7 +95,7 @@ export default function Legal({ view, navigateTo }: LegalProps) {
               <div className="mt-8 space-y-6 text-sm text-gray-600 dark:text-slate-300 leading-relaxed">
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">1. Agreement to Terms</h3>
                 <p>
-                  By accessing, installing, downloading, or executing the "Premium Live Caption Player" desktop application, you agree to be bound by these Terms of Service. If you do not agree to all terms herein, do not install or use this application. This software is operated by abbaaminub@gmail.com and is subject to Paddle checkout merchant processing requirements.
+                  By accessing, installing, downloading, or executing the "Premium Live Caption Player" desktop application, you agree to be bound by these Terms of Service. If you do not agree to all terms herein, do not install or use this application. This software is operated by tukurmuhammed902@gmail.com and is subject to Paddle checkout merchant processing requirements.
                 </p>
 
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">2. Software License & Rights</h3>
@@ -125,7 +125,7 @@ export default function Legal({ view, navigateTo }: LegalProps) {
 
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">6. Governing Law & Dispute Resolution</h3>
                 <p>
-                  These terms shall be governed in accordance with the user's local consumer laws. Any disputes, billing resolutions, or claims regarding subscription renewals must be directed to abbaaminub@gmail.com or via Paddle support ticket workflows.
+                  These terms shall be governed in accordance with the user's local consumer laws. Any disputes, billing resolutions, or claims regarding subscription renewals must be directed to tukurmuhammed902@gmail.com or via Paddle support ticket workflows.
                 </p>
               </div>
             </motion.div>
@@ -187,7 +187,7 @@ export default function Legal({ view, navigateTo }: LegalProps) {
 
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">5. Your Privacy Rights</h3>
                 <p>
-                  You have the complete right to request the deletion of your purchase email log, cancel your subscription, or restrict communications. To exercise any data access request, please contact our support desk via email at <span className="font-semibold text-sky-500 dark:text-sky-400">abbaaminub@gmail.com</span>.
+                  You have the complete right to request the deletion of your purchase email log, cancel your subscription, or restrict communications. To exercise any data access request, please contact our support desk via email at <span className="font-semibold text-sky-500 dark:text-sky-400">tukurmuhammed902@gmail.com</span>.
                 </p>
               </div>
             </motion.div>
@@ -217,7 +217,7 @@ export default function Legal({ view, navigateTo }: LegalProps) {
               <div className="mt-8 rounded-xl bg-sky-50 p-4 border border-sky-100 dark:bg-white/5 dark:border-white/10 text-xs text-sky-800 dark:text-sky-300 flex items-start gap-2.5">
                 <Mail className="h-4 w-4 shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold">Refund Inquiries:</span> Any refund requests must state your license email and be sent to abbaaminub@gmail.com or filed through your Paddle subscription dashboard.
+                  <span className="font-bold">Refund Inquiries:</span> Any refund requests must state your license email and be sent to tukurmuhammed902@gmail.com or filed through your Paddle subscription dashboard.
                 </div>
               </div>
 
@@ -242,7 +242,7 @@ export default function Legal({ view, navigateTo }: LegalProps) {
 
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">4. Dispute Resolution & Customer Support</h3>
                 <p>
-                  Before initiating a bank chargeback, we highly encourage writing to our support mailbox. We respond to all technical billing inquiries within 24 hours. Contact our operator directly at <span className="font-bold text-sky-500 dark:text-sky-400">abbaaminub@gmail.com</span> to resolve any billing disputes immediately.
+                  Before initiating a bank chargeback, we highly encourage writing to our support mailbox. We respond to all technical billing inquiries within 24 hours. Contact our operator directly at <span className="font-bold text-sky-500 dark:text-sky-400">tukurmuhammed902@gmail.com</span> to resolve any billing disputes immediately.
                 </p>
               </div>
             </motion.div>

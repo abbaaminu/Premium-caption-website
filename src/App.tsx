@@ -238,7 +238,7 @@ export default function App() {
                       },
                       {
                         q: "How will my card be charged and managed?",
-                        a: "Checkouts are handled securely via Paddle. Paddle serves as our Merchant of Record. This ensures your payment information is protected under PCI-DSS standards. You are billed $1.00 USD on a monthly cycle. You can cancel at any time instantly from your license file email link or by contacting abbaaminub@gmail.com."
+                        a: "Checkouts are handled securely via Paddle. Paddle serves as our Merchant of Record. This ensures your payment information is protected under PCI-DSS standards. You are billed $1.00 USD on a monthly cycle. You can cancel at any time instantly from your license file email link or by contacting tukurmuhammed902@gmail.com."
                       },
                       {
                         q: "How is speech processed locally using the Vosk API?",
@@ -246,7 +246,7 @@ export default function App() {
                       },
                       {
                         q: "Can I get a refund if the application does not load?",
-                        a: "Yes! We operate an audited 14-day refund policy. If your system is unable to process local subtitle models or experiences PySide6 window rendering crashes, simply contact abbaaminub@gmail.com to reverse your $1 payment immediately."
+                        a: "Yes! We operate an audited 14-day refund policy. If your system is unable to process local subtitle models or experiences PySide6 window rendering crashes, simply contact tukurmuhammed902@gmail.com to reverse your $1 payment immediately."
                       },
                       {
                         q: "How do I activate my Premium license key?",
