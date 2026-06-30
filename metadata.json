@@ -1,0 +1,6 @@
+{
+  "name": "Premium Live Caption Player",
+  "description": "Professional, modern landing page for the Premium Live Caption Player desktop app, including full Paddle merchant compliance policies.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
