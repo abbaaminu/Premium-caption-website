@@ -209,16 +209,18 @@
       btn.disabled = true;
       setStatus("Opening secure checkout...", "loading");
 
-      try {
-        Paddle.Checkout.open({
-          items: [{ priceId: PADDLE_PRICE_ID, quantity: 1 }],
-          settings: {
-            successUrl: SUCCESS_URL,
-            displayMode: "overlay",
-            theme: "dark",
-            locale: "en",
-          },
-        });
+      Paddle.Checkout.open({
+    items: [{ priceId: PADDLE_PRICE_ID, quantity: 1 }],
+    settings: {
+        successUrl: SUCCESS_URL,
+        displayMode: "overlay",
+        theme: "dark",
+        locale: "en",
+        // ❌ REMOVE ANY LINES THAT LOOK LIKE:
+        // trialPeriod: "...", 
+    },
+});
+
 
         // Re-enable the button after a moment in case the user closes
         // the overlay without completing payment and wants to try again.
