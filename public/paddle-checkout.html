@@ -237,8 +237,13 @@
     // Initialize Paddle once the page loads
     window.addEventListener("load", () => {
       try {
-        Paddle.Environment.set(PADDLE_ENVIRONMENT);
-        Paddle.Initialize({ token: PADDLE_CLIENT_TOKEN });
+        // Ensure this is explicitly set to production right before initializing
+Paddle.Environment.set("production"); 
+
+Paddle.Initialize({ 
+    token: "live_73e0bdd6f7b239b436190d59bf8" 
+});
+
         setStatus("Secure checkout ready.");
         setTimeout(() => setStatus(""), 1500);
       } catch (err) {
