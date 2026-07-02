@@ -192,8 +192,7 @@
     //   Price ID          → Catalog → Products → your $1/month price
     // -----------------------------------------------------------------------
     const PADDLE_CLIENT_TOKEN = "live_73e0bdd6f7b239b436190d59bf8";
-    const PADDLE_PRICE_ID     = "pri_01kwfsfg8m7zf71yznd9c8t0ra";
-    const PADDLE_ENVIRONMENT  = "production";
+    const PADDLE_PRICE_ID     = "pri_01kwfsfg8m7zf71yznd9c8t0ra"; // live price ID
     const SUCCESS_URL         = "https://caption-player-backend.onrender.com/thank-you?transaction_id={checkout.id}";
     // -----------------------------------------------------------------------
 
@@ -209,18 +208,16 @@
       btn.disabled = true;
       setStatus("Opening secure checkout...", "loading");
 
-      Paddle.Checkout.open({
-    items: [{ priceId: PADDLE_PRICE_ID, quantity: 1 }],
-    settings: {
-        successUrl: SUCCESS_URL,
-        displayMode: "overlay",
-        theme: "dark",
-        locale: "en",
-        // ❌ REMOVE ANY LINES THAT LOOK LIKE:
-        // trialPeriod: "...", 
-    },
-});
-
+      try {
+        Paddle.Checkout.open({
+          items: [{ priceId: PADDLE_PRICE_ID, quantity: 1 }],
+          settings: {
+            successUrl: SUCCESS_URL,
+            displayMode: "overlay",
+            theme: "dark",
+            locale: "en",
+          },
+        });
 
         // Re-enable the button after a moment in case the user closes
         // the overlay without completing payment and wants to try again.
@@ -239,13 +236,9 @@
     // Initialize Paddle once the page loads
     window.addEventListener("load", () => {
       try {
-        // Ensure this is explicitly set to production right before initializing
-Paddle.Environment.set("production"); 
-
-Paddle.Initialize({ 
-    token: "live_73e0bdd6f7b239b436190d59bf8" 
-});
-
+        // Do NOT call Paddle.Environment.set() for production —
+        // Paddle.js defaults to live automatically when given a live_ token.
+        Paddle.Initialize({ token: PADDLE_CLIENT_TOKEN });
         setStatus("Secure checkout ready.");
         setTimeout(() => setStatus(""), 1500);
       } catch (err) {
