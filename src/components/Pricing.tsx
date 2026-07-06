@@ -137,15 +137,15 @@ export default function Pricing() {
                 Subscribe via Paystack ($1/Mo)
               </a>
 
-              {/* Gumroad button */}
+              {/* Paddle button */}
               <a
-                href="https://tukurmuhammed.gumroad.com/l/zcjsys"
+                href="https://premiumcaptionapp.vercel.app/paddle-checkout.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full rounded-xl bg-[#e45b5b] hover:opacity-90 text-white py-4 text-center text-sm font-bold transition-all shadow-md focus:outline-none"
-                id="gumroad-button"
+                className="block w-full rounded-xl bg-[#1a8870] hover:opacity-90 text-white py-4 text-center text-sm font-bold transition-all shadow-md focus:outline-none"
+                id="paddle-button"
               >
-                Subscribe via Gumroad ($1/Mo)
+                Subscribe via Paddle ($1/Mo)
               </a>
 
               <p className="text-center text-xs text-gray-400 dark:text-slate-500 mt-1">
@@ -160,7 +160,7 @@ export default function Pricing() {
         <div className="mt-12 text-center max-w-xl mx-auto space-y-2">
           <div className="flex items-center justify-center gap-2 text-xs text-gray-400 dark:text-slate-500 font-mono">
             <Shield className="h-4 w-4 text-sky-500" />
-            <span>Secure payments via Paystack & Gumroad · tukurmuhammed902@gmail.com</span>
+            <span>Secure payments via Paystack & Paddle · tukurmuhammed902@gmail.com</span>
           </div>
           <p className="text-xs text-gray-500 dark:text-slate-400">
             After payment, you'll receive a license key by email. Paste it into the app to activate unlimited captions instantly.
