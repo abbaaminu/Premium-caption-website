@@ -65,14 +65,8 @@ export default function Hero({ navigateTo }: HeroProps) {
       // Reset success notice after 5 seconds
       setTimeout(() => setDownloadSuccess(false), 5000);
       
-      // Programmatically trigger a mock file download of the desktop application bundle
-      const element = document.createElement("a");
-      const file = new Blob(["Mock Premium Live Caption Player Desktop Application Executable - Vosk & VLC Subtitle Sync Pipeline Bundle"], {type: 'text/plain'});
-      element.href = URL.createObjectURL(file);
-      element.download = `Premium_Live_Caption_Player_${selectedOS === 'win' ? 'Windows_x64.exe' : selectedOS === 'mac' ? 'macOS_ARM64.dmg' : 'Linux_x86_64.AppImage'}`;
-      document.body.appendChild(element);
-      element.click();
-      document.body.removeChild(element);
+      // Safely redirect the user to your Google Drive link in a new tab
+      window.open("https://drive.google.com/file/d/1kQ7OdgbEIajNroqcHPjfduwZ793czfVd/view?usp=sharing", "_blank", "noopener,noreferrer");
     }, 2000);
   };
 
