@@ -184,7 +184,7 @@ export default function App() {
                           onClick={handleDriveDownload}
                           className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
                         >
-                          <span>Get .exe (42.5 MB)</span>
+                          <span>Get .exe (105.7 MB)</span>
                           <ArrowRight className="h-3 w-3" />
                         </a>
                       </div>
@@ -203,7 +203,7 @@ export default function App() {
                           onClick={handleDriveDownload}
                           className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
                         >
-                          <span>Get .dmg (38.2 MB)</span>
+                          <span>Get .dmg (105.7 MB)</span>
                           <ArrowRight className="h-3 w-3" />
                         </a>
                       </div>
@@ -217,7 +217,7 @@ export default function App() {
                           onClick={handleDriveDownload}
                           className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
                         >
-                          <span>Get .AppImage (45.1 MB)</span>
+                          <span>Get .AppImage (105.7 MB)</span>
                           <ArrowRight className="h-3 w-3" />
                         </a>
                       </div>
