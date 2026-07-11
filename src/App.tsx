@@ -57,6 +57,12 @@ export default function App() {
     setDarkMode(!darkMode);
   };
 
+  // Centralized download driver link trigger
+  const handleDriveDownload = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.open("https://drive.google.com/file/d/1kQ7OdgbEIajNroqcHPjfduwZ793czfVd/view?usp=sharing", "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 transition-colors duration-300 dark:bg-[#0F172A] dark:text-gray-100 flex flex-col justify-between">
       
@@ -156,7 +162,7 @@ export default function App() {
                 </div>
               </section>
 
-              {/* Dedicated Download Installer Segment (Satisfies prompt Download trigger) */}
+              {/* Dedicated Download Installer Segment */}
               <section className="bg-white py-16 dark:bg-[#0F172A] border-t border-gray-100 dark:border-white/5" id="download-section">
                 <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
                   <div className="mx-auto max-w-3xl">
@@ -169,12 +175,13 @@ export default function App() {
                     </p>
 
                     <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                      {/* Windows Card */}
                       <div className="rounded-2xl border border-gray-200 bg-gray-50/50 p-6 dark:border-white/5 dark:bg-white/5">
                         <h3 className="font-bold text-sm text-gray-900 dark:text-white">Windows Executable</h3>
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">For Windows 10 & 11 (64-bit)</p>
                         <a
-                          href="#download"
-                          onClick={(e) => { e.preventDefault(); alert("Mock download: Premium_Live_Caption_Player_Windows_x64.exe has started."); }}
+                          href="https://drive.google.com/file/d/1kQ7OdgbEIajNroqcHPjfduwZ793czfVd/view?usp=sharing"
+                          onClick={handleDriveDownload}
                           className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
                         >
                           <span>Get .exe (42.5 MB)</span>
@@ -182,6 +189,7 @@ export default function App() {
                         </a>
                       </div>
 
+                      {/* macOS Card */}
                       <div className="rounded-2xl border border-sky-300 bg-sky-50/10 p-6 dark:border-sky-500/30 dark:bg-white/5">
                         <h3 className="font-bold text-sm text-gray-900 dark:text-white flex items-center justify-center gap-1">
                           macOS Package
@@ -191,8 +199,8 @@ export default function App() {
                         </h3>
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">For Apple Silicon Macs (M1/M2/M3/M4)</p>
                         <a
-                          href="#download"
-                          onClick={(e) => { e.preventDefault(); alert("Mock download: Premium_Live_Caption_Player_macOS_ARM64.dmg has started."); }}
+                          href="https://drive.google.com/file/d/1kQ7OdgbEIajNroqcHPjfduwZ793czfVd/view?usp=sharing"
+                          onClick={handleDriveDownload}
                           className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
                         >
                           <span>Get .dmg (38.2 MB)</span>
@@ -200,12 +208,13 @@ export default function App() {
                         </a>
                       </div>
 
+                      {/* Linux Card */}
                       <div className="rounded-2xl border border-gray-200 bg-gray-50/50 p-6 dark:border-white/5 dark:bg-white/5">
                         <h3 className="font-bold text-sm text-gray-900 dark:text-white">Linux AppImage</h3>
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">Portable execution package</p>
                         <a
-                          href="#download"
-                          onClick={(e) => { e.preventDefault(); alert("Mock download: Premium_Live_Caption_Player_Linux_x86_64.AppImage has started."); }}
+                          href="https://drive.google.com/file/d/1kQ7OdgbEIajNroqcHPjfduwZ793czfVd/view?usp=sharing"
+                          onClick={handleDriveDownload}
                           className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
                         >
                           <span>Get .AppImage (45.1 MB)</span>
@@ -217,7 +226,7 @@ export default function App() {
                 </div>
               </section>
 
-              {/* Detailed FAQs Section (Extremely vital to satisfy Paddle compliance questions about support, billing model and license delivery) */}
+              {/* Detailed FAQs Section */}
               <section className="bg-gray-50 py-16 dark:bg-[#0B1120] border-t border-gray-100 dark:border-white/5" id="faqs-section">
                 <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
                   <div className="text-center max-w-3xl mx-auto mb-12">
