@@ -39,6 +39,25 @@ export default function Header({ currentPath, navigateTo, darkMode, toggleDarkMo
     }
   };
 
+  // Centralized download click fallback handler
+  const handleDownloadAction = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // 1. Try to stay on home page and look for the scroll target
+    navigateTo('home');
+    setMobileMenuOpen(false);
+    
+    setTimeout(() => {
+      const dlSec = document.getElementById('download-section');
+      if (dlSec) {
+        dlSec.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // 2. Fallback: If the section doesn't exist, launch the direct download link securely
+        window.open("https://drive.google.com/file/d/1kQ7OdgbEIajNroqcHPjfduwZ793czfVd/view?usp=sharing", "_blank", "noopener,noreferrer");
+      }
+    }, 150);
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200/80 bg-white/85 backdrop-blur-md transition-colors duration-300 dark:border-white/5 dark:bg-[#0F172A]/85" id="nav-header">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -94,14 +113,7 @@ export default function Header({ currentPath, navigateTo, darkMode, toggleDarkMo
           {/* Download CTA */}
           <a
             href="#download-section"
-            onClick={(e) => {
-              e.preventDefault();
-              navigateTo('home');
-              setTimeout(() => {
-                const dlSec = document.getElementById('download-section');
-                if (dlSec) dlSec.scrollIntoView({ behavior: 'smooth' });
-              }, 150);
-            }}
+            onClick={handleDownloadAction}
             className="flex items-center gap-1.5 rounded-lg accent-gradient px-4 py-2 text-sm font-semibold text-white transition-all shadow-md shadow-sky-500/10 hover:opacity-95"
             id="download-cta-header"
           >
@@ -160,21 +172,13 @@ export default function Header({ currentPath, navigateTo, darkMode, toggleDarkMo
                   id={`mobile-nav-item-${item.path}`}
                 >
                   {item.label}
-                </a>
+                </a >
               );
             })}
             <div className="pt-4 border-t border-gray-100 dark:border-white/5">
               <a
                 href="#download-section"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setMobileMenuOpen(false);
-                  navigateTo('home');
-                  setTimeout(() => {
-                    const dlSec = document.getElementById('download-section');
-                    if (dlSec) dlSec.scrollIntoView({ behavior: 'smooth' });
-                  }, 150);
-                }}
+                onClick={handleDownloadAction}
                 className="flex w-full items-center justify-center gap-2 rounded-xl accent-gradient py-3.5 text-center text-base font-semibold text-white transition-all shadow-md shadow-sky-500/10"
                 id="mobile-download-cta"
               >
