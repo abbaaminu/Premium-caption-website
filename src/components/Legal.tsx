@@ -147,7 +147,7 @@ export default function Legal({ view, navigateTo }: LegalProps) {
                   Privacy Policy
                 </h1>
                 <p className="mt-2 text-sm text-gray-500 dark:text-slate-400">
-                  Last Updated: June 30, 2026 • Product: Premium Live Caption Player
+                  Last Updated: July 17, 2026 • Product: Premium Live Caption Player • Developer: Abba Aminu
                 </p>
               </div>
 
@@ -155,40 +155,64 @@ export default function Legal({ view, navigateTo }: LegalProps) {
               <div className="mt-8 rounded-xl bg-emerald-50 p-4 border border-emerald-100 dark:bg-white/5 dark:border-white/10 text-xs text-emerald-800 dark:text-emerald-300 flex items-start gap-2.5">
                 <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold">Privacy Core:</span> Our architecture enforces a 100% offline rule. We do not maintain remote cloud voice transcribers, analytics telemetry, or audio-scraping channels.
+                  <span className="font-bold">Microsoft Store Policy 10.5.1 Compliant:</span> This offline media player is designed to prioritize absolute privacy. All media decoding, voice extraction, and caption synthesis take place entirely on your physical machine. We never access, capture, or transmit your media.
                 </div>
               </div>
 
               {/* Legal Privacy Sections */}
               <div className="mt-8 space-y-6 text-sm text-gray-600 dark:text-slate-300 leading-relaxed">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">1. Local Speech Processing Guarantee</h3>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">1. 100% Offline Local Processing Guarantee</h3>
                 <p>
-                  Premium Live Caption Player processes speech audio and generates subtitle translations <span className="font-semibold text-gray-900 dark:text-white">entirely offline locally</span> on your device. 
-                  The application integrates the local open-source Vosk API for speech-to-text decoding. 
-                  No video packets, raw audio streams, speaking voice logs, transcriptions, or translation text strings are ever captured, compiled, or transmitted to external web servers or databases.
+                  <strong>Premium Live Caption Player</strong> is an offline, AI-driven media playback utility developed by <strong>Abba Aminu</strong>. All core operational components—including video parsing, audio stream extraction, and acoustic decoding via the local Vosk speech-to-text libraries—run 100% locally on your computer. The application does not require or establish an active internet connection to play or transcribe your media.
                 </p>
 
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">2. Personal Data Collected & Processed</h3>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">2. Zero Collection, Storage, or Transmission of Media files</h3>
+                <p>
+                  We recognize that your personal media files and video documents are highly private.
+                </p>
                 <ul className="list-disc pl-5 space-y-2">
-                  <li><span className="font-bold text-gray-900 dark:text-white">Media Contents:</span> Absolute zero collection. The desktop application loads files locally and performs IPC socket transfers on your local machine only.</li>
-                  <li><span className="font-bold text-gray-900 dark:text-white">Payment Information:</span> We use Paddle as an external merchant. When purchasing the $1/Month subscription, your payment details (credit card number, email, address) are processed securely by Paddle under strict PCI-DSS regulations. Our servers do not store your raw credit card digits.</li>
-                  <li><span className="font-bold text-gray-900 dark:text-white">Account Email:</span> We only retain your basic purchase email address for license verification, update broadcasts, and support tickets.</li>
+                  <li>
+                    <strong>Media File Exclusion:</strong> Your video and audio files are never collected, logged, cached, indexed, or stored outside your designated local directories.
+                  </li>
+                  <li>
+                    <strong>No External Server Connections:</strong> The application does not possess any code to compress, upload, stream, or transmit your media content or caption transcripts to external servers, cloud services, third-party APIs, or databases.
+                  </li>
+                  <li>
+                    <strong>In-Memory Processing:</strong> Subtitle generation and audio analysis happen strictly in real-time within volatile system memory (RAM). This data is immediately discarded once playback is paused, stopped, or when the player is closed.
+                  </li>
                 </ul>
 
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">3. Cookies & Website Analytics</h3>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">3. Personal Data Collection Practices</h3>
                 <p>
-                  Our landing website does not deploy invasive advertising tracking cookies or social-media profiling pixels. We only utilize standard local storage parameters to persist your dark-mode preference (e.g. "darkMode" state) for aesthetic continuity.
+                  Our primary desktop software collects absolute zero telemetry, zero performance reports, zero crash logs, and zero tracking metadata. No registration or profile creation is required to use the local player.
+                </p>
+                <p>
+                  To sustain independent development, our website offers an optional Premium upgrade:
+                </p>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li>
+                    <strong>Billing and Checkout:</strong> Purchases are handled securely through our verified Merchant of Record (Paddle) at exactly $1.00/month. We share zero media usage patterns with Paddle. Paddle collects billing details under strict PCI-DSS regulations to issue invoices.
+                  </li>
+                  <li>
+                    <strong>Support and License Verification:</strong> If you purchase a premium license, your provided email address and an randomized license string are securely recorded in our activation database strictly to verify your active subscription and send updates or respond to technical support inquiries.
+                  </li>
+                </ul>
+
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">4. Children's Privacy</h3>
+                <p>
+                  Because Premium Live Caption Player processes all media strictly offline and does not harvest any user information, it is safe for all audiences and does not collect or process any personal identification from children under the age of 13.
                 </p>
 
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">4. Sub-Processors</h3>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">5. Full Contact Information & Data Subject Rights</h3>
                 <p>
-                  We share transactional email metadata with Paddle for billing subscriptions and verifying merchant eligibility. Paddle operates as our Merchant of Record. You may inspect Paddle's compliance privacy terms directly on their portal.
+                  You retain the absolute right to demand the immediate deletion of your premium license activation logs or request support on subscription states. For any questions, policy clarifications, or technical compliance audits, please reach out directly to the developer:
                 </p>
-
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white font-display">5. Your Privacy Rights</h3>
-                <p>
-                  You have the complete right to request the deletion of your purchase email log, cancel your subscription, or restrict communications. To exercise any data access request, please contact our support desk via email at <span className="font-semibold text-sky-500 dark:text-sky-400">tukurmuhammed902@gmail.com</span>.
-                </p>
+                <div className="rounded-xl border border-gray-100 dark:border-white/5 bg-gray-50/50 dark:bg-white/5 p-4 font-mono text-xs text-gray-700 dark:text-slate-300">
+                  <p className="font-bold text-gray-900 dark:text-white">Abba Aminu (Developer)</p>
+                  <p className="mt-1">Email: tukurmuhammed902@gmail.com</p>
+                  <p>Product: Premium Live Caption Player</p>
+                  <p>Support URL: https://premiumcaptionapp.vercel.app</p>
+                </div>
               </div>
             </motion.div>
           )}
