@@ -173,8 +173,9 @@ export default function App() {
                         <h3 className="font-bold text-sm text-gray-900 dark:text-white">Windows Executable</h3>
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">For Windows 10 & 11 (64-bit)</p>
                         <a
-                          href="#download"
-                          onClick={(e) => { e.preventDefault(); alert("Mock download: Premium_Live_Caption_Player_Windows_x64.exe has started."); }}
+                          href="https://1drv.ms/u/c/a841fdcc94dc137d/IQCW-aZ-20wKSrUH0pBH53llAaucKHp8S3hrACPphkUF51Q?e=JfFnlK&download=1"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
                         >
                           <span>Get .exe (42.5 MB)</span>
@@ -191,8 +192,9 @@ export default function App() {
                         </h3>
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">For Apple Silicon Macs (M1/M2/M3/M4)</p>
                         <a
-                          href="#download"
-                          onClick={(e) => { e.preventDefault(); alert("Mock download: Premium_Live_Caption_Player_macOS_ARM64.dmg has started."); }}
+                          href="https://1drv.ms/u/c/a841fdcc94dc137d/IQCW-aZ-20wKSrUH0pBH53llAaucKHp8S3hrACPphkUF51Q?e=JfFnlK&download=1"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
                         >
                           <span>Get .dmg (38.2 MB)</span>
@@ -204,8 +206,9 @@ export default function App() {
                         <h3 className="font-bold text-sm text-gray-900 dark:text-white">Linux AppImage</h3>
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">Portable execution package</p>
                         <a
-                          href="#download"
-                          onClick={(e) => { e.preventDefault(); alert("Mock download: Premium_Live_Caption_Player_Linux_x86_64.AppImage has started."); }}
+                          href="https://1drv.ms/u/c/a841fdcc94dc137d/IQCW-aZ-20wKSrUH0pBH53llAaucKHp8S3hrACPphkUF51Q?e=JfFnlK&download=1"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
                         >
                           <span>Get .AppImage (45.1 MB)</span>
