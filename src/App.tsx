@@ -191,27 +191,25 @@ export default function App() {
                           </span>
                         </h3>
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">For Apple Silicon Macs (M1/M2/M3/M4)</p>
-                        <p comming soon</p>
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
-                        >
-                          <span>Get .dmg (38.2 MB)</span>
-                          <ArrowRight className="h-3 w-3" />
-                        </a>
-                      </div>
+                          <button
+                            disabled
+                            className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-gray-400 dark:text-slate-500 cursor-not-allowed"
+                          >
+                           <span>Coming Soon</span>
+                           <ArrowRight className="h-3 w-3" />
+                           </button>
+                         </div>
 
                       <div className="rounded-2xl border border-gray-200 bg-gray-50/50 p-6 dark:border-white/5 dark:bg-white/5">
                         <h3 className="font-bold text-sm text-gray-900 dark:text-white">Linux AppImage</h3>
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">Portable execution package</p>
-                        <p comming soon</p>
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
-                        >
-                          <span>Get .AppImage (45.1 MB)</span>
+                        <button
+                          disabled
+                          className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-gray-400 dark:text-slate-500 cursor-not-allowed"
+                         >
+                          <span>Coming Soon</span>
                           <ArrowRight className="h-3 w-3" />
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>
