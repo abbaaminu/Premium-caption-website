@@ -178,7 +178,7 @@ export default function App() {
                           rel="noopener noreferrer"
                           className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
                         >
-                          <span>Get .exe (42.5 MB)</span>
+                          <span>Get .exe (79.9 MB)</span>
                           <ArrowRight className="h-3 w-3" />
                         </a>
                       </div>
@@ -191,8 +191,7 @@ export default function App() {
                           </span>
                         </h3>
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">For Apple Silicon Macs (M1/M2/M3/M4)</p>
-                        <a
-                          href="https://1drv.ms/u/c/a841fdcc94dc137d/IQCW-aZ-20wKSrUH0pBH53llAaucKHp8S3hrACPphkUF51Q?e=JfFnlK&download=1"
+                        <p comming soon</p>
                           target="_blank"
                           rel="noopener noreferrer"
                           className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
@@ -205,8 +204,7 @@ export default function App() {
                       <div className="rounded-2xl border border-gray-200 bg-gray-50/50 p-6 dark:border-white/5 dark:bg-white/5">
                         <h3 className="font-bold text-sm text-gray-900 dark:text-white">Linux AppImage</h3>
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">Portable execution package</p>
-                        <a
-                          href="https://1drv.ms/u/c/a841fdcc94dc137d/IQCW-aZ-20wKSrUH0pBH53llAaucKHp8S3hrACPphkUF51Q?e=JfFnlK&download=1"
+                        <p comming soon</p>
                           target="_blank"
                           rel="noopener noreferrer"
                           className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
