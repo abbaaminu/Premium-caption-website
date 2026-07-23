@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Sparkles, Languages, MonitorPlay, Zap, ArrowRight, Play, Pause, RefreshCw, Volume2, Maximize2, Cpu } from 'lucide-react';
+import { Download, Sparkles, Languages, MonitorPlay, Zap, ArrowRight, Play, Pause, RefreshCw, Volume2, Cpu, Eye, Image as ImageIcon } from 'lucide-react';
 import { RoutePath } from '../types';
 import { motion } from 'motion/react';
+import heroBannerImg from '../assets/images/caption_player_hero_1784821770249.jpg';
+import appLogoImg from '../assets/images/app_logo_icon_1784821784642.jpg';
 
 interface HeroProps {
   navigateTo: (path: RoutePath) => void;
@@ -39,8 +41,9 @@ export default function Hero({ navigateTo }: HeroProps) {
   const [activeVideoIdx, setActiveVideoIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentLineIdx, setCurrentLineIdx] = useState(0);
-  const [targetLang, setTargetLang] = useState<'es' | 'en'>('es'); // Spanish translation vs original English
+  const [targetLang, setTargetLang] = useState<'es' | 'en'>('es');
   const [selectedOS, setSelectedOS] = useState<'win' | 'mac' | 'linux'>('win');
+  const [heroViewMode, setHeroViewMode] = useState<'simulation' | 'screenshot'>('simulation');
 
   const activeVideo = MOCK_VIDEOS[activeVideoIdx];
 
@@ -83,14 +86,32 @@ export default function Hero({ navigateTo }: HeroProps) {
           
           {/* Text Left Column */}
           <div className="text-center lg:col-span-5 lg:text-left">
+            {/* Developer Branding & Logo Badge */}
+            <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
+              <img 
+                src={appLogoImg} 
+                alt="Premium Live Caption Player Logo" 
+                className="h-12 w-12 rounded-2xl shadow-lg shadow-sky-500/20 ring-2 ring-sky-400/30 object-cover" 
+                referrerPolicy="no-referrer" 
+              />
+              <div className="text-left">
+                <span className="text-[11px] font-bold text-sky-600 dark:text-sky-400 font-mono uppercase tracking-widest block">
+                  Desktop Software
+                </span>
+                <p className="text-sm font-extrabold text-gray-900 dark:text-white">
+                  Developed by Abba Aminu
+                </p>
+              </div>
+            </div>
+
             {/* Tagline */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-sky-200/80 bg-sky-50/50 px-3 py-1 text-xs font-semibold text-sky-700 transition-colors dark:border-white/10 dark:bg-white/5 dark:text-sky-300">
-              <Sparkles className="h-3.5 w-3.5" />
-              <span>Offline AI Speech Tracking & Translation</span>
+            <div className="inline-flex items-center gap-2 rounded-full border border-sky-200/80 bg-sky-50/50 px-3.5 py-1 text-xs font-semibold text-sky-700 transition-colors dark:border-white/10 dark:bg-white/5 dark:text-sky-300">
+              <Sparkles className="h-3.5 w-3.5 text-sky-500" />
+              <span>Offline AI Speech Tracking & Subtitles</span>
             </div>
 
             {/* Headline */}
-            <h1 className="mt-6 font-display text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-5xl lg:leading-[1.15]">
+            <h1 className="mt-5 font-display text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-5xl lg:leading-[1.15]">
               Real-time Subtitles synced with{' '}
               <span className="text-gradient">
                 VLC & MPV
@@ -99,7 +120,7 @@ export default function Hero({ navigateTo }: HeroProps) {
             </h1>
 
             {/* Sub-headline */}
-            <p className="mt-6 text-base leading-relaxed text-gray-600 dark:text-slate-300 sm:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-gray-600 dark:text-slate-300 sm:text-lg">
               Premium Live Caption Player tracks speech audio locally using the high-performance Vosk engine and automatically synchronizes translated live subtitles into your native VLC player. Built with PySide6 for local power.
             </p>
 
@@ -178,7 +199,7 @@ export default function Hero({ navigateTo }: HeroProps) {
                 id="download-success-notice"
               >
                 <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Success! Your desktop installer package has started downloading. Run the offline wizard to initialize Vosk.</span>
+                <span>Success! Your desktop installer package download has initiated.</span>
               </motion.div>
             )}
 
@@ -198,137 +219,186 @@ export default function Hero({ navigateTo }: HeroProps) {
             </div>
           </div>
 
-          {/* Interactive Simulation Right Column */}
+          {/* Interactive Simulation / Image Showcase Right Column */}
           <div className="lg:col-span-7">
             <div className="relative rounded-2xl border border-gray-200 bg-white p-2 shadow-2xl dark:border-white/10 dark:bg-white/5 glow-blue" id="pyside-mockup-container">
+              
               {/* PySide6 Desktop Frame Window Header */}
               <div className="flex items-center justify-between border-b border-gray-100 bg-gray-50/50 px-4 py-2.5 dark:border-white/10 dark:bg-[#0F172A]/50 rounded-t-xl">
                 <div className="flex items-center gap-1.5">
                   <div className="h-3 w-3 rounded-full bg-red-400" />
                   <div className="h-3 w-3 rounded-full bg-amber-400" />
                   <div className="h-3 w-3 rounded-full bg-green-400" />
-                  <span className="ml-2 font-mono text-xs font-medium text-gray-400 dark:text-slate-400">PySide6 Qt6 Interface Engine</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="rounded-md accent-gradient px-2 py-0.5 font-mono text-[10px] font-bold text-white shadow-sm shadow-sky-500/10">
-                    VLC Sync Pipeline Active
+                  <span className="ml-2 font-mono text-xs font-medium text-gray-400 dark:text-slate-400 hidden sm:inline">
+                    PySide6 Qt6 Interface Engine
                   </span>
+                </div>
+
+                {/* Switcher Tabs: Simulation vs App Image Preview */}
+                <div className="flex items-center gap-1 bg-gray-200/60 dark:bg-white/10 p-1 rounded-lg">
+                  <button
+                    onClick={() => setHeroViewMode('simulation')}
+                    className={`flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold rounded-md transition-all ${
+                      heroViewMode === 'simulation'
+                        ? 'bg-white text-gray-900 shadow-sm dark:bg-sky-500 dark:text-white'
+                        : 'text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white'
+                    }`}
+                  >
+                    <Eye className="h-3 w-3" />
+                    <span>Live Simulation</span>
+                  </button>
+                  <button
+                    onClick={() => setHeroViewMode('screenshot')}
+                    className={`flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold rounded-md transition-all ${
+                      heroViewMode === 'screenshot'
+                        ? 'bg-white text-gray-900 shadow-sm dark:bg-sky-500 dark:text-white'
+                        : 'text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white'
+                    }`}
+                  >
+                    <ImageIcon className="h-3 w-3" />
+                    <span>App Showcase</span>
+                  </button>
                 </div>
               </div>
 
-              {/* Simulation Workspace */}
-              <div className="bg-gray-950 p-4 rounded-b-xl aspect-video relative overflow-hidden flex flex-col justify-between">
-                
-                {/* Media Player Header */}
-                <div className="flex items-center justify-between z-10 bg-black/45 backdrop-blur-xs p-2 rounded-lg border border-white/5">
-                  <div className="flex items-center gap-2">
-                    <MonitorPlay className="h-4 w-4 text-sky-400" />
-                    <span className="text-xs font-mono font-bold text-white max-w-[200px] truncate">{activeVideo.title}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <button 
-                      onClick={() => {
-                        setActiveVideoIdx((prev) => (prev + 1) % MOCK_VIDEOS.length);
-                        setCurrentLineIdx(0);
-                      }}
-                      className="text-[10px] bg-white/10 hover:bg-white/20 text-white rounded px-2 py-1 font-mono flex items-center gap-1 transition-all"
-                      id="mockup-switch-video"
-                    >
-                      <RefreshCw className="h-2.5 w-2.5" />
-                      Switch File
-                    </button>
-                    <span className="text-[10px] font-mono text-gray-400">{activeVideo.duration}</span>
+              {/* Display Mode 1: App Screenshot / Image Showcase */}
+              {heroViewMode === 'screenshot' ? (
+                <div className="bg-gray-950 rounded-b-xl aspect-video relative overflow-hidden flex items-center justify-center group">
+                  <img 
+                    src={heroBannerImg} 
+                    alt="Premium Live Caption Player Interface Preview" 
+                    className="w-full h-full object-cover rounded-b-xl transition-transform duration-500 group-hover:scale-105" 
+                    referrerPolicy="no-referrer"
+                  />
+                  {/* Floating Overlay Badge */}
+                  <div className="absolute bottom-4 left-4 right-4 bg-slate-950/85 backdrop-blur-md border border-white/10 rounded-xl p-3.5 flex items-center justify-between text-white shadow-xl">
+                    <div className="flex items-center gap-3">
+                      <img src={appLogoImg} alt="Logo" className="h-8 w-8 rounded-lg object-cover ring-1 ring-sky-400/40" referrerPolicy="no-referrer" />
+                      <div>
+                        <span className="text-xs font-bold text-sky-400 font-mono">Live Subtitles Overlay</span>
+                        <p className="text-[11px] text-slate-300">Vosk Speech Engine • 100% Offline Processing</p>
+                      </div>
+                    </div>
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono">
+                      Active Sync
+                    </span>
                   </div>
                 </div>
-
-                {/* Subtitle Visualizer Area */}
-                <div className="my-auto flex flex-col items-center justify-center p-6 text-center z-10">
-                  <div className="text-gray-500 font-mono text-[10px] uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 bg-sky-400 rounded-full animate-ping" />
-                    Speech Tracked (Speaker: {activeVideo.speaker})
-                  </div>
+              ) : (
+                /* Display Mode 2: Simulation Workspace */
+                <div className="bg-gray-950 p-4 rounded-b-xl aspect-video relative overflow-hidden flex flex-col justify-between">
                   
-                  {/* Speech waveform graphics */}
-                  <div className="h-10 flex items-center justify-center gap-0.5 mb-4">
-                    {[10, 40, 20, 60, 80, 50, 90, 70, 30, 85, 95, 45, 10, 60, 40, 75, 20, 80, 15, 30].map((h, i) => (
-                      <motion.div
-                        key={i}
-                        animate={isPlaying ? { height: [`${h*0.3}%`, `${h}%`, `${h*0.3}%`] } : { height: '15%' }}
-                        transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.05 }}
-                        className="w-1 rounded-full bg-gradient-to-t from-sky-400 to-indigo-500"
-                        style={{ height: `${h}%` }}
-                      />
-                    ))}
+                  {/* Media Player Header */}
+                  <div className="flex items-center justify-between z-10 bg-black/45 backdrop-blur-xs p-2 rounded-lg border border-white/5">
+                    <div className="flex items-center gap-2">
+                      <MonitorPlay className="h-4 w-4 text-sky-400" />
+                      <span className="text-xs font-mono font-bold text-white max-w-[200px] truncate">{activeVideo.title}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <button 
+                        onClick={() => {
+                          setActiveVideoIdx((prev) => (prev + 1) % MOCK_VIDEOS.length);
+                          setCurrentLineIdx(0);
+                        }}
+                        className="text-[10px] bg-white/10 hover:bg-white/20 text-white rounded px-2 py-1 font-mono flex items-center gap-1 transition-all"
+                        id="mockup-switch-video"
+                      >
+                        <RefreshCw className="h-2.5 w-2.5" />
+                        Switch File
+                      </button>
+                      <span className="text-[10px] font-mono text-gray-400">{activeVideo.duration}</span>
+                    </div>
                   </div>
 
-                  {/* Dynamic captions box */}
-                  <div className="bg-black/80 backdrop-blur-md rounded-xl p-4 border border-white/10 shadow-lg max-w-lg w-full transition-all duration-300 min-h-[90px] flex flex-col justify-center">
-                    {/* Source English */}
-                    <p className="text-sm font-medium text-white mb-2 leading-relaxed">
-                      "{activeVideo.speechLines[currentLineIdx].text}"
-                    </p>
+                  {/* Subtitle Visualizer Area */}
+                  <div className="my-auto flex flex-col items-center justify-center p-6 text-center z-10">
+                    <div className="text-gray-500 font-mono text-[10px] uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                      <span className="h-1.5 w-1.5 bg-sky-400 rounded-full animate-ping" />
+                      Speech Tracked (Speaker: {activeVideo.speaker})
+                    </div>
                     
-                    {/* Target Translation */}
-                    <div className="pt-2 border-t border-white/10 flex items-center gap-1.5 justify-center">
-                      <Languages className="h-3.5 w-3.5 text-sky-400 shrink-0" />
-                      <p className="text-xs font-semibold text-sky-300 leading-relaxed">
-                        {activeVideo.speechLines[currentLineIdx].translation}
+                    {/* Speech waveform graphics */}
+                    <div className="h-10 flex items-center justify-center gap-0.5 mb-4">
+                      {[10, 40, 20, 60, 80, 50, 90, 70, 30, 85, 95, 45, 10, 60, 40, 75, 20, 80, 15, 30].map((h, i) => (
+                        <motion.div
+                          key={i}
+                          animate={isPlaying ? { height: [`${h*0.3}%`, `${h}%`, `${h*0.3}%`] } : { height: '15%' }}
+                          transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.05 }}
+                          className="w-1 rounded-full bg-gradient-to-t from-sky-400 to-indigo-500"
+                          style={{ height: `${h}%` }}
+                        />
+                      ))}
+                    </div>
+
+                    {/* Dynamic captions box */}
+                    <div className="bg-black/80 backdrop-blur-md rounded-xl p-4 border border-white/10 shadow-lg max-w-lg w-full transition-all duration-300 min-h-[90px] flex flex-col justify-center">
+                      {/* Source English */}
+                      <p className="text-sm font-medium text-white mb-2 leading-relaxed">
+                        "{activeVideo.speechLines[currentLineIdx].text}"
                       </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Media Control Toolbar */}
-                <div className="mt-auto bg-black/60 backdrop-blur-xs p-2 rounded-lg border border-white/5 flex items-center justify-between z-10">
-                  <div className="flex items-center gap-2">
-                    <button 
-                      onClick={() => setIsPlaying(!isPlaying)}
-                      className="p-1 rounded accent-gradient text-white transition-all focus:outline-none"
-                      id="mockup-play-toggle"
-                    >
-                      {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
-                    </button>
-                    <span className="text-[10px] font-mono text-gray-300">Vosk Offline Speech Tracker v2.4</span>
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-1">
-                      <span className="text-[10px] font-mono text-gray-400 mr-1">Subtitle Target:</span>
-                      <button 
-                        onClick={() => setTargetLang('es')}
-                        className={`text-[10px] px-2 py-0.5 rounded font-bold font-mono transition-all ${
-                          targetLang === 'es' ? 'bg-sky-500 text-white' : 'bg-white/10 text-gray-300 hover:bg-white/15'
-                        }`}
-                        id="target-es"
-                      >
-                        ES (Spanish)
-                      </button>
-                      <button 
-                        onClick={() => setTargetLang('en')}
-                        className={`text-[10px] px-2 py-0.5 rounded font-bold font-mono transition-all ${
-                          targetLang === 'en' ? 'bg-sky-500 text-white' : 'bg-white/10 text-gray-300 hover:bg-white/15'
-                        }`}
-                        id="target-en"
-                      >
-                        EN (Original)
-                      </button>
-                    </div>
-
-                    <div className="flex items-center gap-1 text-gray-400">
-                      <Volume2 className="h-3.5 w-3.5" />
-                      <div className="w-12 h-1 bg-white/20 rounded">
-                        <div className="w-9/12 h-full bg-sky-500 rounded" />
+                      
+                      {/* Target Translation */}
+                      <div className="pt-2 border-t border-white/10 flex items-center gap-1.5 justify-center">
+                        <Languages className="h-3.5 w-3.5 text-sky-400 shrink-0" />
+                        <p className="text-xs font-semibold text-sky-300 leading-relaxed">
+                          {activeVideo.speechLines[currentLineIdx].translation}
+                        </p>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Subtitle Sync Offset Display */}
-                <div className="absolute bottom-16 right-4 bg-slate-900/95 backdrop-blur-md rounded border border-sky-500/30 px-2 py-1 flex items-center gap-1.5 z-10 shadow">
-                  <Zap className="h-3 w-3 text-yellow-400 animate-pulse" />
-                  <span className="text-[9px] font-mono font-bold text-sky-200">Sync Offset: -0.05s (Dual-VLC Engine)</span>
+                  {/* Media Control Toolbar */}
+                  <div className="mt-auto bg-black/60 backdrop-blur-xs p-2 rounded-lg border border-white/5 flex items-center justify-between z-10">
+                    <div className="flex items-center gap-2">
+                      <button 
+                        onClick={() => setIsPlaying(!isPlaying)}
+                        className="p-1 rounded accent-gradient text-white transition-all focus:outline-none"
+                        id="mockup-play-toggle"
+                      >
+                        {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
+                      </button>
+                      <span className="text-[10px] font-mono text-gray-300">Vosk Offline Speech Tracker v2.4</span>
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-1">
+                        <span className="text-[10px] font-mono text-gray-400 mr-1">Subtitle Target:</span>
+                        <button 
+                          onClick={() => setTargetLang('es')}
+                          className={`text-[10px] px-2 py-0.5 rounded font-bold font-mono transition-all ${
+                            targetLang === 'es' ? 'bg-sky-500 text-white' : 'bg-white/10 text-gray-300 hover:bg-white/15'
+                          }`}
+                          id="target-es"
+                        >
+                          ES (Spanish)
+                        </button>
+                        <button 
+                          onClick={() => setTargetLang('en')}
+                          className={`text-[10px] px-2 py-0.5 rounded font-bold font-mono transition-all ${
+                            targetLang === 'en' ? 'bg-sky-500 text-white' : 'bg-white/10 text-gray-300 hover:bg-white/15'
+                          }`}
+                          id="target-en"
+                        >
+                          EN (Original)
+                        </button>
+                      </div>
+
+                      <div className="flex items-center gap-1 text-gray-400">
+                        <Volume2 className="h-3.5 w-3.5" />
+                        <div className="w-12 h-1 bg-white/20 rounded">
+                          <div className="w-9/12 h-full bg-sky-500 rounded" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Subtitle Sync Offset Display */}
+                  <div className="absolute bottom-16 right-4 bg-slate-900/95 backdrop-blur-md rounded border border-sky-500/30 px-2 py-1 flex items-center gap-1.5 z-10 shadow">
+                    <Zap className="h-3 w-3 text-yellow-400 animate-pulse" />
+                    <span className="text-[9px] font-mono font-bold text-sky-200">Sync Offset: -0.05s (Dual-VLC Engine)</span>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 
@@ -337,3 +407,4 @@ export default function Hero({ navigateTo }: HeroProps) {
     </section>
   );
 }
+

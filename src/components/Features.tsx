@@ -1,6 +1,7 @@
 import React from 'react';
-import { Cpu, Film, Layers, Globe, ShieldAlert, CheckCircle, Smartphone } from 'lucide-react';
+import { Cpu, Film, Layers, Globe, ShieldAlert, CheckCircle, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
+import heroBannerImg from '../assets/images/caption_player_hero_1784821770249.jpg';
 
 export default function Features() {
   const features = [
@@ -93,8 +94,34 @@ export default function Features() {
           ))}
         </div>
 
+        {/* Feature Visual Showcase Banner */}
+        <div className="mt-16 rounded-2xl border border-gray-200 bg-gray-900 p-6 shadow-2xl dark:border-white/10 overflow-hidden relative" id="feature-image-showcase">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-5 text-white">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-500/20 px-3 py-1 text-xs font-semibold text-sky-300 mb-4">
+                <Sparkles className="h-3.5 w-3.5 text-sky-400" />
+                <span>Visual Subtitle Overlay</span>
+              </span>
+              <h3 className="font-display text-2xl font-bold tracking-tight">
+                Smooth Floating Captions over Any Video
+              </h3>
+              <p className="mt-3 text-sm text-slate-300 leading-relaxed">
+                The desktop player renders transparent subtitle windows on top of VLC, MPV, or web video streams. Enjoy custom font sizing, background opacity controls, and real-time dual language display.
+              </p>
+            </div>
+            <div className="lg:col-span-7 overflow-hidden rounded-xl border border-white/10 shadow-lg">
+              <img 
+                src={heroBannerImg} 
+                alt="Desktop Live Subtitles Interface Showcase" 
+                className="w-full h-auto object-cover hover:scale-102 transition-transform duration-500" 
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
+        </div>
+
         {/* Local Security and Compliance Highlight */}
-        <div className="mt-16 rounded-2xl bg-gradient-to-r from-slate-950 to-slate-900 border border-white/5 p-8 text-white relative overflow-hidden shadow-xl" id="privacy-guarantee-box">
+        <div className="mt-12 rounded-2xl bg-gradient-to-r from-slate-950 to-slate-900 border border-white/5 p-8 text-white relative overflow-hidden shadow-xl" id="privacy-guarantee-box">
           {/* Decorative geometric patterns */}
           <div className="absolute right-0 bottom-0 h-40 w-40 bg-sky-500/10 rounded-full blur-2xl" />
           <div className="absolute top-0 left-0 h-20 w-20 bg-indigo-500/10 rounded-full blur-xl" />
@@ -125,3 +152,4 @@ export default function Features() {
     </section>
   );
 }
+

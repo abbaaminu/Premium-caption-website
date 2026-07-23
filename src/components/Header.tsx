@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { RoutePath } from '../types';
 import { Subtitles, Menu, X, Sun, Moon, Download, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import appLogoImg from '../assets/images/app_logo_icon_1784821784642.jpg';
 
 interface HeaderProps {
   currentPath: RoutePath;
@@ -46,17 +47,20 @@ export default function Header({ currentPath, navigateTo, darkMode, toggleDarkMo
         <a 
           href="#/" 
           onClick={(e) => { e.preventDefault(); navigateTo('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          className="flex items-center gap-2.5 focus:outline-none"
+          className="flex items-center gap-2.5 focus:outline-none group"
           id="logo-link"
         >
-          <img
-            src="/logo.png"
-            alt="Premium Live Caption Player"
-            className="h-10 w-10 rounded
+          <img 
+            src={appLogoImg} 
+            alt="Live Caption Pro Logo" 
+            className="h-10 w-10 rounded-xl shadow-md shadow-sky-500/10 object-cover ring-1 ring-sky-400/30 group-hover:scale-105 transition-transform" 
+            referrerPolicy="no-referrer" 
+          />
           <span className="font-display text-lg font-bold tracking-tight text-gray-900 dark:text-white sm:text-xl">
             LiveCaption<span className="text-gradient font-medium ml-1 text-sm uppercase tracking-widest">Pro</span>
           </span>
         </a>
+
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-1 lg:gap-2">
