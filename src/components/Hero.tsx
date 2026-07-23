@@ -43,7 +43,7 @@ export default function Hero({ navigateTo }: HeroProps) {
   const [currentLineIdx, setCurrentLineIdx] = useState(0);
   const [targetLang, setTargetLang] = useState<'es' | 'en'>('es');
   const [selectedOS, setSelectedOS] = useState<'win' | 'mac' | 'linux'>('win');
-  const [heroViewMode, setHeroViewMode] = useState<'simulation' | 'screenshot'>('simulation');
+  const [heroViewMode, setHeroViewMode] = useState<'simulation' | 'screenshot'>('screenshot');
 
   const activeVideo = MOCK_VIDEOS[activeVideoIdx];
 
