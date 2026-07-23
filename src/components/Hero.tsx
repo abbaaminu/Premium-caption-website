@@ -61,16 +61,21 @@ export default function Hero({ navigateTo }: HeroProps) {
   const handleDownload = (e: React.MouseEvent) => {
     e.preventDefault();
     setDownloading(true);
+    
+    // Open OneDrive download directory/file directly in a new tab to avoid iframe restrictions
+    window.open(
+      "https://1drv.ms/u/c/a841fdcc94dc137d/IQCW-aZ-20wKSrUH0pBH53llAaucKHp8S3hrACPphkUF51Q?e=JfFnlK&download=1",
+      "_blank",
+      "noopener,noreferrer"
+    );
+
     setTimeout(() => {
       setDownloading(false);
       setDownloadSuccess(true);
       
       // Reset success notice after 5 seconds
       setTimeout(() => setDownloadSuccess(false), 5000);
-      
-      // Open the OneDrive download directory / download file directly
-      window.location.href = "https://1drv.ms/u/c/a841fdcc94dc137d/IQCW-aZ-20wKSrUH0pBH53llAaucKHp8S3hrACPphkUF51Q?e=JfFnlK&download=1";
-    }, 1500);
+    }, 1000);
   };
 
   return (
