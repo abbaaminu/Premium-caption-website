@@ -49,9 +49,10 @@ export default function Header({ currentPath, navigateTo, darkMode, toggleDarkMo
           className="flex items-center gap-2.5 focus:outline-none"
           id="logo-link"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl accent-gradient text-white shadow-md shadow-sky-500/10">
-            <Subtitles className="h-5.5 w-5.5" />
-          </div>
+          <img
+            src="/logo.png"
+            alt="Premium Live Caption Player"
+            className="h-10 w-10 rounded
           <span className="font-display text-lg font-bold tracking-tight text-gray-900 dark:text-white sm:text-xl">
             LiveCaption<span className="text-gradient font-medium ml-1 text-sm uppercase tracking-widest">Pro</span>
           </span>
