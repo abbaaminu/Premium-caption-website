@@ -178,7 +178,7 @@ export default function App() {
                           rel="noopener noreferrer"
                           className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
                         >
-                          <span>Get .exe (42.5 MB)</span>
+                          <span>Get .exe (79.9 MB)</span>
                           <ArrowRight className="h-3 w-3" />
                         </a>
                       </div>
