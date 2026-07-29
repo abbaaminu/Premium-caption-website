@@ -156,7 +156,7 @@ export default function App() {
                 </div>
               </section>
 
-              {/* Dedicated Download Installer Segment (Satisfies prompt Download trigger) */}
+              {/* Dedicated Download Installer Segment */}
               <section className="bg-white py-16 dark:bg-[#0F172A] border-t border-gray-100 dark:border-white/5" id="download-section">
                 <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
                   <div className="mx-auto max-w-3xl">
@@ -169,7 +169,8 @@ export default function App() {
                     </p>
 
                     <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                      <div className="rounded-2xl border border-gray-200 bg-gray-50/50 p-6 dark:border-white/5 dark:bg-white/5">
+                      {/* Windows Executable - Active */}
+                      <div className="rounded-2xl border border-sky-300 bg-sky-50/10 p-6 dark:border-sky-500/30 dark:bg-white/5">
                         <h3 className="font-bold text-sm text-gray-900 dark:text-white">Windows Executable</h3>
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">For Windows 10 & 11 (64-bit)</p>
                         <a
@@ -183,7 +184,8 @@ export default function App() {
                         </a>
                       </div>
 
-                      <div className="rounded-2xl border border-sky-300 bg-sky-50/10 p-6 dark:border-sky-500/30 dark:bg-white/5">
+                      {/* macOS Package - Coming Soon */}
+                      <div className="rounded-2xl border border-gray-200 bg-gray-50/50 p-6 dark:border-white/5 dark:bg-white/5 opacity-80">
                         <h3 className="font-bold text-sm text-gray-900 dark:text-white flex items-center justify-center gap-1">
                           macOS Package
                           <span className="rounded bg-sky-100 px-1.5 py-0.5 text-[9px] font-bold text-sky-800 dark:bg-white/10 dark:text-sky-300">
@@ -191,36 +193,25 @@ export default function App() {
                           </span>
                         </h3>
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">For Apple Silicon Macs (M1/M2/M3/M4)</p>
-                        <a
-                          href="https://1drv.ms/u/c/a841fdcc94dc137d/IQCW-aZ-20wKSrUH0pBH53llAaucKHp8S3hrACPphkUF51Q?e=JfFnlK&download=1"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
-                        >
-                          <span>Get .dmg (38.2 MB)</span>
-                          <ArrowRight className="h-3 w-3" />
-                        </a>
+                        <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-amber-100 dark:bg-amber-500/10 px-2.5 py-1 text-xs font-semibold text-amber-700 dark:text-amber-400">
+                          <span>Coming Soon</span>
+                        </div>
                       </div>
 
-                      <div className="rounded-2xl border border-gray-200 bg-gray-50/50 p-6 dark:border-white/5 dark:bg-white/5">
+                      {/* Linux AppImage - Coming Soon */}
+                      <div className="rounded-2xl border border-gray-200 bg-gray-50/50 p-6 dark:border-white/5 dark:bg-white/5 opacity-80">
                         <h3 className="font-bold text-sm text-gray-900 dark:text-white">Linux AppImage</h3>
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">Portable execution package</p>
-                        <a
-                          href="https://1drv.ms/u/c/a841fdcc94dc137d/IQCW-aZ-20wKSrUH0pBH53llAaucKHp8S3hrACPphkUF51Q?e=JfFnlK&download=1"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
-                        >
-                          <span>Get .AppImage (45.1 MB)</span>
-                          <ArrowRight className="h-3 w-3" />
-                        </a>
+                        <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-amber-100 dark:bg-amber-500/10 px-2.5 py-1 text-xs font-semibold text-amber-700 dark:text-amber-400">
+                          <span>Coming Soon</span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </section>
 
-              {/* Detailed FAQs Section (Extremely vital to satisfy Paddle compliance questions about support, billing model and license delivery) */}
+              {/* Detailed FAQs Section */}
               <section className="bg-gray-50 py-16 dark:bg-[#0B1120] border-t border-gray-100 dark:border-white/5" id="faqs-section">
                 <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
                   <div className="text-center max-w-3xl mx-auto mb-12">
