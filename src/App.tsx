@@ -9,9 +9,9 @@ import Footer from './components/Footer';
 import { ShieldAlert, Cpu, Download, ArrowRight, HelpCircle, Laptop, Key, RefreshCw, FileCode, CheckCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-// Direct Direct-Download OneDrive Endpoints
-const MONTHLY_DOWNLOAD_URL = "https://onedrive.live.com/download?cid=a841fdcc94dc137d&resid=A841FDCC94DC137D%21s23fac40995414d0f80b8e254817e7ed9&authkey=%21AIk461xO5jS2kBA";
-const LIFETIME_DOWNLOAD_URL = "https://onedrive.live.com/download?cid=a841fdcc94dc137d&resid=A841FDCC94DC137D%21s451a508e26ce4ee1b00fde314986538f&authkey=%21AD2zWKsljqNIMjT";
+// Direct GitHub Release 1-Click Download URLs
+const MONTHLY_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player/releases/download/v1.0.1/PremiumCaptionPlayer_Setup_v1.0.1.exe";
+const LIFETIME_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player/releases/download/v1.0.1/PremiumCaptionPlayer_Lifetime_Setup_v1.0.1.exe";
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState<RoutePath>('home');
