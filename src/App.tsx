@@ -10,9 +10,8 @@ import { ShieldAlert, Cpu, Download, ArrowRight, HelpCircle, Laptop, Key, Refres
 import { motion, AnimatePresence } from 'motion/react';
 
 // Direct OneDrive Download Endpoints
-const MONTHLY_DOWNLOAD_URL = "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Xy8xZHJ2Lm1zX3VfY19hODQxZmRjYzk0ZGMxMzdkX0lRUUwtaFJCV2UxSFFMamlWSUYtZnRsNkFUaGhqUmlQYkJmSUN0SU14VGdGeE5r/root/content";
-const LIFETIME_DOWNLOAD_URL = "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Xy8xZHJ2Lm1zX3VfY19hODQxZmRjYzk0ZGMxMzdkX0lRU09VQnBGemliaFRyQVAzakZKaGxPUEFkMnpXS3NsanFOSU1qVDk4MjdHdTA4/root/content";
-
+const MONTHLY_DOWNLOAD_URL = "https://1drv.ms/u/c/a841fdcc94dc137d/IQQL-hRBWe1HQLjiVIF-ftl6AThhjRiPbBfICtIMxTgFxNk?download=1";
+const LIFETIME_DOWNLOAD_URL = "https://1drv.ms/u/c/a841fdcc94dc137d/IQSOUBpFzibhTrAP3jFJhlOPAd2zWKsljqNIMjT9827Gu08?download=1";
 export default function App() {
   const [currentPath, setCurrentPath] = useState<RoutePath>('home');
   const [darkMode, setDarkMode] = useState<boolean>(() => {
