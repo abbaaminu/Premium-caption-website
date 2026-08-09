@@ -9,9 +9,10 @@ import Footer from './components/Footer';
 import { ShieldAlert, Cpu, Download, ArrowRight, HelpCircle, Laptop, Key, RefreshCw, FileCode, CheckCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-// Direct OneDrive Download Endpoints
-const MONTHLY_DOWNLOAD_URL = "https://1drv.ms/u/c/a841fdcc94dc137d/IQQL-hRBWe1HQLjiVIF-ftl6AThhjRiPbBfICtIMxTgFxNk?download=1";
-const LIFETIME_DOWNLOAD_URL = "https://1drv.ms/u/c/a841fdcc94dc137d/IQSOUBpFzibhTrAP3jFJhlOPAd2zWKsljqNIMjT9827Gu08?download=1";
+// Direct Direct-Download OneDrive Endpoints
+const MONTHLY_DOWNLOAD_URL = "https://onedrive.live.com/download?cid=a841fdcc94dc137d&resid=A841FDCC94DC137D%21s23fac40995414d0f80b8e254817e7ed9&authkey=%21AIk461xO5jS2kBA";
+const LIFETIME_DOWNLOAD_URL = "https://onedrive.live.com/download?cid=a841fdcc94dc137d&resid=A841FDCC94DC137D%21s451a508e26ce4ee1b00fde314986538f&authkey=%21AD2zWKsljqNIMjT";
+
 export default function App() {
   const [currentPath, setCurrentPath] = useState<RoutePath>('home');
   const [darkMode, setDarkMode] = useState<boolean>(() => {
@@ -167,7 +168,8 @@ export default function App() {
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">Supports Monthly Key Activation & Free Trial</p>
                         <a
                           href={MONTHLY_DOWNLOAD_URL}
-                          download="PremiumCaptionPlayer_Setup_v1.0.1.exe"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="mt-4 inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-sky-600 hover:bg-sky-500 transition duration-200 shadow-sm"
                         >
                           <Download className="h-4 w-4" />
@@ -181,7 +183,8 @@ export default function App() {
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">Standalone lifetime pre-activated launcher</p>
                         <a
                           href={LIFETIME_DOWNLOAD_URL}
-                          download="PremiumCaptionPlayer_Lifetime_Setup_v1.0.1.exe"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="mt-4 inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition duration-200 shadow-sm"
                         >
                           <Download className="h-4 w-4" />
