@@ -27,12 +27,12 @@ declare global {
 }
 
 // Configuration Constants
-const PADDLE_ENVIRONMENT: 'sandbox' | 'production' = 'sandbox'; 
-const PADDLE_CLIENT_TOKEN = 'test_YOUR_PADDLE_CLIENT_TOKEN_HERE'; 
+const PADDLE_ENVIRONMENT: 'sandbox' | 'production' = 'production'; 
+const PADDLE_CLIENT_TOKEN = 'live_722a5747933737e59bb2a41425e'; 
 
 const PADDLE_PRICES = {
-  MONTHLY: 'pri_01h_monthly_price_id',  // $1.00 USD / month
-  LIFETIME: 'pri_01h_lifetime_price_id'  // $19.00 USD / one-time
+  MONTHLY: 'pri_01kwfsfg8m7zf71yznd9c8t0ra',  // $1.00 USD / month
+  LIFETIME: 'pri_01kzk5qvnzdnt7grkjwg35vzpn'  // $19.00 USD / one-time
 };
 
 const PAYSTACK_MONTHLY_URL = 'https://paystack.shop/pay/zyug4tg203';
