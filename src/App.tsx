@@ -9,6 +9,10 @@ import Footer from './components/Footer';
 import { ShieldAlert, Cpu, Download, ArrowRight, HelpCircle, Laptop, Key, RefreshCw, FileCode, CheckCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
+// Direct OneDrive Download Endpoints
+const MONTHLY_DOWNLOAD_URL = "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Xy8xZHJ2Lm1zX3VfY19hODQxZmRjYzk0ZGMxMzdkX0lRUUwtaFJCV2UxSFFMamlWSUYtZnRsNkFUaGhqUmlQYkJmSUN0SU14VGdGeE5r/root/content";
+const LIFETIME_DOWNLOAD_URL = "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Xy8xZHJ2Lm1zX3VfY19hODQxZmRjYzk0ZGMxMzdkX0lRU09VQnBGemliaFRyQVAzakZKaGxPUEFkMnpXS3NsanFOSU1qVDk4MjdHdTA4/root/content";
+
 export default function App() {
   const [currentPath, setCurrentPath] = useState<RoutePath>('home');
   const [darkMode, setDarkMode] = useState<boolean>(() => {
@@ -158,18 +162,17 @@ export default function App() {
                     </p>
 
                     <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                      {/* Executable 1: Standard / Monthly Trial Build */}
+                      {/* Executable 1: Standard / Monthly Build */}
                       <div className="rounded-2xl border border-sky-300 bg-sky-50/10 p-6 dark:border-sky-500/30 dark:bg-white/5">
                         <h3 className="font-bold text-sm text-gray-900 dark:text-white">Standard / Monthly Build</h3>
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">Supports Monthly Key Activation & Free Trial</p>
                         <a
-                          href="https://1drv.ms/u/c/a841fdcc94dc137d/IQCf-XCraMCtQpZ7k3LAjrL-AeXApoxfUR60ljKLYjpvpKY?download=1"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sky-500 dark:text-sky-400 hover:underline"
+                          href={MONTHLY_DOWNLOAD_URL}
+                          download="PremiumCaptionPlayer_Setup_v1.0.1.exe"
+                          className="mt-4 inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-sky-600 hover:bg-sky-500 transition duration-200 shadow-sm"
                         >
-                          <Download className="h-3.5 w-3.5" />
-                          <span>Download Standard .exe (113 MB)</span>
+                          <Download className="h-4 w-4" />
+                          <span>Download Monthly Setup (v1.0.1)</span>
                         </a>
                       </div>
 
@@ -178,13 +181,12 @@ export default function App() {
                         <h3 className="font-bold text-sm text-gray-900 dark:text-white">Lifetime Unlocked Build</h3>
                         <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">Standalone lifetime pre-activated launcher</p>
                         <a
-                          href="https://1drv.ms/u/c/a841fdcc94dc137d/IQCW-aZ-20wKSrUH0pBH53llAaucKHp8S3hrACPphkUF51Q?e=JfFnlK&download=1"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-emerald-500 dark:text-emerald-400 hover:underline"
+                          href={LIFETIME_DOWNLOAD_URL}
+                          download="PremiumCaptionPlayer_Lifetime_Setup_v1.0.1.exe"
+                          className="mt-4 inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition duration-200 shadow-sm"
                         >
-                          <Download className="h-3.5 w-3.5" />
-                          <span>Download Lifetime .exe (113 MB)</span>
+                          <Download className="h-4 w-4" />
+                          <span>Download Lifetime Setup (v1.0.1)</span>
                         </a>
                       </div>
                     </div>
