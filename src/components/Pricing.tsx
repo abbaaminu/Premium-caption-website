@@ -11,12 +11,11 @@ const Pricing: React.FC = () => {
   
   useEffect(() => {
     if (window.Paddle) {
-      // 1. Set environment: 'sandbox' for testing, or 'live' for production
-      window.Paddle.Environment.set('sandbox');
+      // 1. Set environment to PRODUCTION
+      window.Paddle.Environment.set('production');
 
-      // 2. Paddle Billing v2 Initialization (Fixes the blank screen crash)
+      // 2. Initialize Paddle Billing v2 with your live token
       window.Paddle.Initialize({
-        // Replace with your Client-Side Token from Paddle > Developer tools > Authentication
         token: "live_722a5747933737e59bb2a41425e", 
         eventCallback: (event: any) => {
           // Listen for completed payment transactions
