@@ -64,7 +64,7 @@ const Pricing: React.FC = () => {
           <h2 style={{ margin: '16px 0' }}>$4.99<span style={{ fontSize: '16px', color: '#94a3b8' }}>/mo</span></h2>
           <p style={{ color: '#94a3b8', fontSize: '14px', marginBottom: '24px' }}>Billed monthly. Cancel anytime.</p>
           <button 
-            onClick={() => handleOpenPaddleCheckout('pri_your_monthly_price_id_here')}
+            onClick={() => handleOpenPaddleCheckout('pri_01kwfsfg8m7zf71yznd9c8t0ra')}
             style={{ backgroundColor: '#3b82f6', color: 'white', padding: '12px 24px', border: 'none', borderRadius: '8px', cursor: 'pointer', width: '100%', fontWeight: 'bold' }}
           >
             Subscribe Monthly
@@ -80,7 +80,7 @@ const Pricing: React.FC = () => {
           <h2 style={{ margin: '16px 0' }}>$49.99<span style={{ fontSize: '16px', color: '#94a3b8' }}>/once</span></h2>
           <p style={{ color: '#94a3b8', fontSize: '14px', marginBottom: '24px' }}>Pay once, own it forever.</p>
           <button 
-            onClick={() => handleOpenPaddleCheckout('pri_your_lifetime_price_id_here')}
+            onClick={() => handleOpenPaddleCheckout('pri_01kzk5qvnzdnt7grkjwg35vzpn')}
             style={{ backgroundColor: '#22c55e', color: '#0f172a', padding: '12px 24px', border: 'none', borderRadius: '8px', cursor: 'pointer', width: '100%', fontWeight: 'bold' }}
           >
             Buy Lifetime
