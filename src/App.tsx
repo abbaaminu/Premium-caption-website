@@ -6,12 +6,13 @@ import Features from './components/Features';
 import Pricing from './components/Pricing';
 import Legal from './components/Legal';
 import Footer from './components/Footer';
-import { ShieldAlert, Cpu, Download, ArrowRight, HelpCircle, Laptop, Key, RefreshCw, FileCode, CheckCircle } from 'lucide-react';
+import { ShieldAlert, Cpu, Download, ArrowRight, HelpCircle, Laptop, Key, RefreshCw, FileCode, CheckCircle, Store } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-// Direct GitHub Release 1-Click Download URLs
-const MONTHLY_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player/releases/download/v1.0.1/PremiumCaptionPlayer_Setup_v1.0.1.exe";
-const LIFETIME_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player/releases/download/v1.0.1/PremiumCaptionPlayer_Lifetime_Setup_v1.0.1.exe";
+// Direct Download & Store URLs
+const UNIFIED_SETUP_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player/releases/download/v1.0.2/PremiumLiveCaptionPlayer_Setup_v1.0.exe";
+const MS_STORE_WEB_URL = "https://apps.microsoft.com/detail/9MWH9VJ9QR2R";
+const MS_STORE_DEEP_LINK = "ms-windows-store://pdp/?productid=9MWH9VJ9QR2R";
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState<RoutePath>('home');
@@ -141,7 +142,7 @@ export default function App() {
                         <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-sky-500">Hardware Compatibility</span>
                         <h4 className="font-display text-base font-bold text-gray-900 dark:text-white mt-1">x86_64 & ARM64</h4>
                         <p className="text-xs text-gray-500 dark:text-slate-400 mt-2">
-                          Precompiled native binaries for Windows 10/11, macOS, and Linux AppImage systems.
+                          Precompiled native binaries for Windows 10/11 systems.
                         </p>
                       </div>
                     </div>
@@ -150,45 +151,49 @@ export default function App() {
                 </div>
               </section>
 
-              {/* Dedicated Download Segment with BOTH .EXE Apps */}
+              {/* Dedicated Download Segment */}
               <section className="bg-white py-16 dark:bg-[#0F172A] border-t border-gray-100 dark:border-white/5" id="download-section">
                 <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
                   <div className="mx-auto max-w-3xl">
                     <h2 className="font-display text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-                      Download Desktop Application Executables
+                      Download Desktop Application
                     </h2>
                     <p className="mt-4 text-sm text-gray-600 dark:text-slate-300">
-                      Select the binary suitable for your license type.
+                      Get the latest build for Windows via direct download or through the Microsoft Store.
                     </p>
 
                     <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                      {/* Executable 1: Standard / Monthly Build */}
-                      <div className="rounded-2xl border border-sky-300 bg-sky-50/10 p-6 dark:border-sky-500/30 dark:bg-white/5">
-                        <h3 className="font-bold text-sm text-gray-900 dark:text-white">Standard / Monthly Build</h3>
-                        <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">Supports Monthly Key Activation & Free Trial</p>
+                      {/* Option 1: Direct Windows Setup */}
+                      <div className="rounded-2xl border border-sky-300 bg-sky-50/10 p-6 dark:border-sky-500/30 dark:bg-white/5 flex flex-col justify-between">
+                        <div>
+                          <h3 className="font-bold text-sm text-gray-900 dark:text-white">Unified Windows Installer</h3>
+                          <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">Direct Executable (.exe) setup for Standard & Lifetime plans</p>
+                        </div>
                         <a
-                          href={MONTHLY_DOWNLOAD_URL}
+                          href={UNIFIED_SETUP_DOWNLOAD_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-4 inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-sky-600 hover:bg-sky-500 transition duration-200 shadow-sm"
+                          className="mt-6 inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-sky-600 hover:bg-sky-500 transition duration-200 shadow-sm"
                         >
                           <Download className="h-4 w-4" />
-                          <span>Download Monthly Setup (v1.0.1)</span>
+                          <span>Download Windows Setup (v1.0.2)</span>
                         </a>
                       </div>
 
-                      {/* Executable 2: Lifetime Unlocked Build */}
-                      <div className="rounded-2xl border border-emerald-300 bg-emerald-50/10 p-6 dark:border-emerald-500/30 dark:bg-white/5">
-                        <h3 className="font-bold text-sm text-gray-900 dark:text-white">Lifetime Unlocked Build</h3>
-                        <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">Standalone lifetime pre-activated launcher</p>
+                      {/* Option 2: Microsoft Store */}
+                      <div className="rounded-2xl border border-emerald-300 bg-emerald-50/10 p-6 dark:border-emerald-500/30 dark:bg-white/5 flex flex-col justify-between">
+                        <div>
+                          <h3 className="font-bold text-sm text-gray-900 dark:text-white">Microsoft Store</h3>
+                          <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">Official Windows Store app listing with automatic background updates</p>
+                        </div>
                         <a
-                          href={LIFETIME_DOWNLOAD_URL}
+                          href={MS_STORE_WEB_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-4 inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition duration-200 shadow-sm"
+                          className="mt-6 inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition duration-200 shadow-sm"
                         >
-                          <Download className="h-4 w-4" />
-                          <span>Download Lifetime Setup (v1.0.1)</span>
+                          <Store className="h-4 w-4" />
+                          <span>Get from Microsoft Store</span>
                         </a>
                       </div>
                     </div>
