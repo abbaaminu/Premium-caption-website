@@ -25,8 +25,8 @@ const Pricing: React.FC = () => {
             const transactionId = event.data?.transaction_id || event.data?.id || "";
             
             if (transactionId) {
-              // Redirect to your Render backend to display the generated license key
-              window.location.href = `https://caption-player-backend.onrender.com/thank-you?transaction_id=${transactionId}`;
+              // Redirect to your custom domain backend to display the generated license key
+              window.location.href = `https://api.caption.stackbuildco.com/thank-you?transaction_id=${transactionId}`;
             } else {
               alert("Payment successful! Please check your email for your activation license key.");
             }
