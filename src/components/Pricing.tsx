@@ -38,11 +38,13 @@ const Pricing: React.FC = () => {
     document.body.appendChild(paystackScript);
 
     return () => {
-      document.body.removeChild(paystackScript);
+      if (document.body.contains(paystackScript)) {
+        document.body.removeChild(paystackScript);
+      }
     };
   }, []);
 
-  // --- PAYSTACK CHECKOUT HANDLER (For Monthly) ---
+  // --- PAYSTACK CHECKOUT HANDLER (Monthly Alternative) ---
   const handlePaystackCheckout = () => {
     if (!email) {
       alert("Please enter your email address first.");
@@ -54,14 +56,12 @@ const Pricing: React.FC = () => {
     }
 
     const handler = window.PaystackPop.setup({
-      key: 'pk_live_cfefbefad18f3c6235cad6abcbaad29d3d59cb7d', // <-- REPLACE THIS with your actual Paystack Public Key
+      key: 'pk_live_cfefbefad18f3c6235cad6abcbaad29d3d59cb7d',
       email: email,
-      plan: 'PLN_vdcec0ugufb4lpk',     // <-- REPLACE THIS with your Paystack Monthly Plan Code
-      // amount: 100000, // Optional: You usually don't need amount if a plan is specified, but if required, it's in kobo/cents
+      plan: 'PLN_vdcec0ugufb4lpk',
       ref: 'CLP_' + Math.floor((Math.random() * 1000000000) + 1).toString(),
       callback: function(response: any) {
         console.log("Paystack payment successful!", response);
-        // Redirect to your custom domain backend with the Paystack reference
         window.location.href = `https://api.caption.stackbuildco.com/thank-you?reference=${response.reference}`;
       },
       onClose: function() {
@@ -72,7 +72,7 @@ const Pricing: React.FC = () => {
     handler.openIframe();
   };
 
-  // --- PADDLE CHECKOUT HANDLER (For Lifetime) ---
+  // --- PADDLE CHECKOUT HANDLER (Primary Global) ---
   const handleOpenPaddleCheckout = (priceId: string) => {
     if (!window.Paddle) {
       alert("Paddle SDK failed to load. Please check your network connection and try again.");
@@ -81,7 +81,7 @@ const Pricing: React.FC = () => {
 
     window.Paddle.Checkout.open({
       items: [{ priceId: priceId, quantity: 1 }],
-      customer: { email: email }, // Pre-fill email for Paddle if the user already typed it
+      customer: email ? { email: email } : undefined,
       settings: {
         displayMode: 'overlay',
         theme: 'dark',
@@ -91,11 +91,11 @@ const Pricing: React.FC = () => {
   };
 
   return (
-    <div className="pricing-container" style={{ padding: '40px', backgroundColor: '#0f172a', color: '#f1f5f9', minHeight: '100vh', textAlign: 'center' }}>
+    <div className="pricing-container" style={{ padding: '40px 20px', backgroundColor: '#0f172a', color: '#f1f5f9', minHeight: '100vh', textAlign: 'center' }}>
       <h1 style={{ color: '#22c55e', marginBottom: '10px' }}>Upgrade to Premium</h1>
       <p style={{ color: '#94a3b8', marginBottom: '30px' }}>Unlock the full potential of Live Caption Player.</p>
 
-      {/* Global Email Input required by Paystack */}
+      {/* Global Email Input required for Paystack & prefilled for Paddle */}
       <div style={{ marginBottom: '40px' }}>
         <input 
           type="email" 
@@ -104,7 +104,8 @@ const Pricing: React.FC = () => {
           onChange={(e) => setEmail(e.target.value)}
           style={{
             padding: '12px 16px',
-            width: '300px',
+            width: '100%',
+            maxWidth: '340px',
             borderRadius: '8px',
             border: '1px solid #334155',
             backgroundColor: '#1e293b',
@@ -115,34 +116,52 @@ const Pricing: React.FC = () => {
         />
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap', alignItems: 'stretch' }}>
         
-        {/* Monthly Plan Card (Paystack) */}
-        <div style={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '16px', padding: '32px', width: '300px' }}>
-          <h3>Monthly Plan</h3>
-          <h2 style={{ margin: '16px 0' }}>$1.00<span style={{ fontSize: '16px', color: '#94a3b8' }}>/mo</span></h2>
-          <p style={{ color: '#94a3b8', fontSize: '14px', marginBottom: '24px' }}>Billed monthly via Paystack. Cancel anytime.</p>
-          <button 
-            onClick={handlePaystackCheckout}
-            style={{ backgroundColor: '#3b82f6', color: 'white', padding: '12px 24px', border: 'none', borderRadius: '8px', cursor: 'pointer', width: '100%', fontWeight: 'bold' }}
-          >
-            Subscribe Monthly
-          </button>
+        {/* Monthly Plan Card (Paddle Primary + Paystack Secondary) */}
+        <div style={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '16px', padding: '32px', width: '100%', maxWidth: '320px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div>
+            <h3>Monthly Plan</h3>
+            <h2 style={{ margin: '16px 0' }}>$1.00<span style={{ fontSize: '16px', color: '#94a3b8' }}>/mo</span></h2>
+            <p style={{ color: '#94a3b8', fontSize: '14px', marginBottom: '24px' }}>Billed monthly. Cancel anytime.</p>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {/* Primary: Paddle Monthly */}
+            <button 
+              onClick={() => handleOpenPaddleCheckout('pri_YOUR_PADDLE_MONTHLY_PRICE_ID')} // Replace with your Paddle Monthly Price ID
+              style={{ backgroundColor: '#ffffff', color: '#0f172a', padding: '12px 20px', border: 'none', borderRadius: '8px', cursor: 'pointer', width: '100%', fontWeight: 'bold' }}
+            >
+              Subscribe via Paddle
+            </button>
+
+            {/* Secondary: Paystack Monthly */}
+            <button 
+              onClick={handlePaystackCheckout}
+              style={{ backgroundColor: '#0ea5e9', color: 'white', padding: '12px 20px', border: 'none', borderRadius: '8px', cursor: 'pointer', width: '100%', fontWeight: 'bold' }}
+            >
+              Subscribe via Paystack
+            </button>
+          </div>
         </div>
 
         {/* Lifetime Plan Card (Paddle) */}
-        <div style={{ backgroundColor: '#1e293b', border: '2px solid #22c55e', borderRadius: '16px', padding: '32px', width: '300px', position: 'relative' }}>
+        <div style={{ backgroundColor: '#1e293b', border: '2px solid #22c55e', borderRadius: '16px', padding: '32px', width: '100%', maxWidth: '320px', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div style={{ position: 'absolute', top: '-12px', left: '50%', transform: 'translateX(-50%)', backgroundColor: '#22c55e', color: '#0f172a', padding: '4px 12px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold' }}>
             BEST VALUE
           </div>
-          <h3>Lifetime License</h3>
-          <h2 style={{ margin: '16px 0' }}>$19.00<span style={{ fontSize: '16px', color: '#94a3b8' }}>/once</span></h2>
-          <p style={{ color: '#94a3b8', fontSize: '14px', marginBottom: '24px' }}>Pay once via Paddle, own it forever.</p>
+
+          <div>
+            <h3>Lifetime License</h3>
+            <h2 style={{ margin: '16px 0' }}>$19.00<span style={{ fontSize: '16px', color: '#94a3b8' }}>/once</span></h2>
+            <p style={{ color: '#94a3b8', fontSize: '14px', marginBottom: '24px' }}>Pay once via Paddle, own it forever.</p>
+          </div>
+
           <button 
             onClick={() => handleOpenPaddleCheckout('pri_01kzk5qvnzdnt7grkjwg35vzpn')}
-            style={{ backgroundColor: '#22c55e', color: '#0f172a', padding: '12px 24px', border: 'none', borderRadius: '8px', cursor: 'pointer', width: '100%', fontWeight: 'bold' }}
+            style={{ backgroundColor: '#22c55e', color: '#0f172a', padding: '12px 20px', border: 'none', borderRadius: '8px', cursor: 'pointer', width: '100%', fontWeight: 'bold' }}
           >
-            Buy Lifetime
+            Buy Lifetime (Paddle)
           </button>
         </div>
 
