@@ -44,7 +44,7 @@ export default function AppSumoRedeem() {
   };
 
   return (
-    <div className="w-full bg-slate-900 flex justify-center p-4 mt-8 pt-12">
+    <div className="w-full bg-slate-900 flex justify-center py-6 px-4">
       <div className="max-w-md w-full bg-slate-800 rounded-xl shadow-lg p-8 border border-slate-700">
         <h2 className="text-2xl font-bold text-white mb-2 text-center">
           Redeem AppSumo License
