@@ -62,13 +62,8 @@ export default function Hero({ navigateTo }: HeroProps) {
     e.preventDefault();
     setDownloading(true);
     
-    // Open OneDrive download directory/file directly in a new tab to avoid iframe restrictions
-    window.open(
-      "https://1drv.ms/u/c/a841fdcc94dc137d/IQCW-aZ-20wKSrUH0pBH53llAaucKHp8S3hrACPphkUF51Q?e=JfFnlK&download=1",
-      "_blank",
-      "noopener,noreferrer"
-    );
-
+  const UNIFIED_SETUP_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player/releases/latest/download/PremiumLiveCaptionPlayer-Setup.exe";
+  const MS_STORE_WEB_URL = "https://apps.microsoft.com/detail/9MWH9VJ9QR2R";
     setTimeout(() => {
       setDownloading(false);
       setDownloadSuccess(true);
