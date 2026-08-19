@@ -10,7 +10,7 @@ import { ShieldAlert, Cpu, Download, ArrowRight, HelpCircle, Laptop, Key, Refres
 import { motion, AnimatePresence } from 'motion/react';
 
 // Direct Download & Store URLs
-https://github.com/abbaaminu/caption-player/releases/latest/download/PremiumLiveCaptionPlayer-Setup.exe
+const UNIFIED_SETUP_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player/releases/latest/download/PremiumLiveCaptionPlayer-Setup.exe";
 const MS_STORE_WEB_URL = "https://apps.microsoft.com/detail/9MWH9VJ9QR2R";
 const MS_STORE_DEEP_LINK = "ms-windows-store://pdp/?productid=9MWH9VJ9QR2R";
 
