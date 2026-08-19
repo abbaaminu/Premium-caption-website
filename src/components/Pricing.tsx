@@ -129,7 +129,7 @@ const Pricing: React.FC = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {/* Primary: Paddle Monthly */}
             <button 
-              onClick={() => handleOpenPaddleCheckout('pri_YOUR_PADDLE_MONTHLY_PRICE_ID')} // Replace with your Paddle Monthly Price ID
+              onClick={() => handleOpenPaddleCheckout('pri_01kwfsfg8m7zf71yznd9c8t0ra')} // Replace with your Paddle Monthly Price ID
               style={{ backgroundColor: '#ffffff', color: '#0f172a', padding: '12px 20px', border: 'none', borderRadius: '8px', cursor: 'pointer', width: '100%', fontWeight: 'bold' }}
             >
               Subscribe via Paddle
