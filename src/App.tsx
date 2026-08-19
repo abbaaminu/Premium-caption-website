@@ -59,7 +59,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 transition-colors duration-300 dark:bg-[#0F172A] dark:text-gray-100 flex flex-col justify-between">
+    // Changed: Removed "justify-between" so items flow naturally without stretching the screen height
+    <div className="min-h-screen bg-gray-50 text-gray-900 transition-colors duration-300 dark:bg-[#0F172A] dark:text-gray-100 flex flex-col">
       
       <Header 
         currentPath={currentPath} 
