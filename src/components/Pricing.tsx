@@ -56,7 +56,7 @@ const Pricing: React.FC = () => {
     const handler = window.PaystackPop.setup({
       key: 'pk_live_cfefbefad18f3c6235cad6abcbaad29d3d59cb7d', // <-- REPLACE THIS with your actual Paystack Public Key
       email: email,
-      plan: 'https://paystack.shop/pay/zyug4tg203',     // <-- REPLACE THIS with your Paystack Monthly Plan Code
+      plan: 'PLN_vdcec0ugufb4lpk',     // <-- REPLACE THIS with your Paystack Monthly Plan Code
       // amount: 100000, // Optional: You usually don't need amount if a plan is specified, but if required, it's in kobo/cents
       ref: 'CLP_' + Math.floor((Math.random() * 1000000000) + 1).toString(),
       callback: function(response: any) {
