@@ -8,7 +8,6 @@ import Legal from './components/Legal';
 import Footer from './components/Footer';
 import { ShieldAlert, Cpu, Download, ArrowRight, HelpCircle, Laptop, Key, RefreshCw, FileCode, CheckCircle, Store } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import AppSumoRedeem from './AppSumoRedeem';
 
 // Direct Download & Store URLs
 const UNIFIED_SETUP_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player/releases/latest/download/PremiumLiveCaptionPlayer-Setup.exe";
