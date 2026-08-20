@@ -117,7 +117,8 @@ const Pricing: React.FC = () => {
         />
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap', alignItems: 'stretch' }}>
+      {/* Pricing Cards Grid */}
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap', alignItems: 'stretch', marginBottom: '60px' }}>
         
         {/* Monthly Plan Card (Paddle Primary + Paystack Secondary) */}
         <div style={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '16px', padding: '32px', width: '100%', maxWidth: '320px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -128,15 +129,13 @@ const Pricing: React.FC = () => {
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {/* Primary: Paddle Monthly */}
             <button 
-              onClick={() => handleOpenPaddleCheckout('pri_01kwfsfg8m7zf71yznd9c8t0ra')} // Replace with your Paddle Monthly Price ID
+              onClick={() => handleOpenPaddleCheckout('pri_01kwfsfg8m7zf71yznd9c8t0ra')}
               style={{ backgroundColor: '#ffffff', color: '#0f172a', padding: '12px 20px', border: 'none', borderRadius: '8px', cursor: 'pointer', width: '100%', fontWeight: 'bold' }}
             >
               Subscribe via Paddle
             </button>
 
-            {/* Secondary: Paystack Monthly */}
             <button 
               onClick={handlePaystackCheckout}
               style={{ backgroundColor: '#0ea5e9', color: 'white', padding: '12px 20px', border: 'none', borderRadius: '8px', cursor: 'pointer', width: '100%', fontWeight: 'bold' }}
@@ -167,6 +166,12 @@ const Pricing: React.FC = () => {
         </div>
 
       </div>
+
+      {/* Embedded AppSumo Redemption Section directly under pricing cards */}
+      <div style={{ maxWidth: '600px', margin: '0 auto', borderTop: '1px solid #334155', paddingTop: '40px' }}>
+        <AppSumoRedeem />
+      </div>
+
     </div>
   );
 };
