@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import AppSumoRedeem from './AppSumoRedeem'; // Adjust path depending on your folder structure
+import AppSumoRedeem from '../AppSumoRedeem';
 
 // Extend the Window interface to recognize both Paddle and Paystack SDKs
 declare global {
