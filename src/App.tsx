@@ -8,7 +8,6 @@ import Legal from './components/Legal';
 import Footer from './components/Footer';
 import { ShieldAlert, Cpu, Download, ArrowRight, HelpCircle, Laptop, Key, RefreshCw, FileCode, CheckCircle, Store } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import AppSumoRedeem from './AppSumoRedeem';
 
 // Direct Download & Store URLs
 const UNIFIED_SETUP_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player/releases/latest/download/PremiumLiveCaptionPlayer-Setup.exe";
@@ -59,9 +58,8 @@ export default function App() {
   };
 
   return (
-    // Changed: Removed "justify-between" so items flow naturally without stretching the screen height
     <div className="min-h-screen bg-gray-50 text-gray-900 transition-colors duration-300 dark:bg-[#0F172A] dark:text-gray-100 flex flex-col">
-      
+
       <Header 
         currentPath={currentPath} 
         navigateTo={navigateTo} 
@@ -86,7 +84,7 @@ export default function App() {
               <section className="bg-gray-50 py-16 dark:bg-[#0B1120] border-t border-gray-100 dark:border-white/5" id="tech-specs">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    
+
                     <div className="lg:col-span-5 space-y-6">
                       <div className="inline-flex items-center gap-1.5 rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700 dark:bg-white/10 dark:text-sky-300">
                         <Laptop className="h-3.5 w-3.5" />
@@ -98,7 +96,7 @@ export default function App() {
                       <p className="text-sm text-gray-600 dark:text-slate-300 leading-relaxed">
                         Premium Live Caption Player operates by spawning a lightweight IPC host on your desktop. When you start VLC, our PySide6 controller hooks the playhead timestamp, translating vocal recordings on the fly.
                       </p>
-                      
+
                       <div className="space-y-3 font-mono text-xs text-gray-500 dark:text-slate-400">
                         <div className="flex items-center gap-2.5">
                           <CheckCircle className="h-4 w-4 text-sky-500" />
@@ -248,13 +246,7 @@ export default function App() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              {/* Existing Pricing Cards */}
               <Pricing />
-              
-              {/* NEW APPSUMO REDEMPTION SECTION */}
-              <div className="w-full pb-16">
-                <AppSumoRedeem />
-              </div>
             </motion.div>
           )}
 
