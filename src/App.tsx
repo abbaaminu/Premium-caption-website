@@ -6,13 +6,14 @@ import Features from './components/Features';
 import Pricing from './components/Pricing';
 import Legal from './components/Legal';
 import Footer from './components/Footer';
-import { ShieldAlert, Cpu, Download, ArrowRight, HelpCircle, Laptop, Key, RefreshCw, FileCode, CheckCircle, Store } from 'lucide-react';
+import { ShieldAlert, Cpu, Download, ArrowRight, HelpCircle, Laptop, Key, RefreshCw, FileCode, CheckCircle, Store, Apple, Terminal } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-// Direct Download & Store URLs
-const UNIFIED_SETUP_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player/releases/latest/download/PremiumLiveCaptionPlayer-Setup.exe";
+// Direct Download & Store URLs (matching release assets v1.0.0)
+const WIN_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-Setup-v1.0.0.exe";
+const MAC_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-macOS.dmg";
+const LINUX_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-Linux.AppImage";
 const MS_STORE_WEB_URL = "https://apps.microsoft.com/detail/9MWH9VJ9QR2R";
-const MS_STORE_DEEP_LINK = "ms-windows-store://pdp/?productid=9MWH9VJ9QR2R";
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState<RoutePath>('home');
@@ -139,10 +140,10 @@ export default function App() {
                       </div>
 
                       <div className="rounded-xl border border-gray-200 bg-white p-5 dark:border-white/5 dark:bg-white/5">
-                        <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-sky-500">Hardware Compatibility</span>
-                        <h4 className="font-display text-base font-bold text-gray-900 dark:text-white mt-1">x86_64 & ARM64</h4>
+                        <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-sky-500">Cross-Platform</span>
+                        <h4 className="font-display text-base font-bold text-gray-900 dark:text-white mt-1">Windows, macOS & Linux</h4>
                         <p className="text-xs text-gray-500 dark:text-slate-400 mt-2">
-                          Precompiled native binaries for Windows 10/11 systems.
+                          Precompiled native binaries for Windows (.exe), macOS (.dmg), and Linux (.AppImage).
                         </p>
                       </div>
                     </div>
@@ -151,52 +152,99 @@ export default function App() {
                 </div>
               </section>
 
-              {/* Dedicated Download Segment */}
+              {/* Dedicated Multi-Platform Download Segment */}
               <section className="bg-white py-16 dark:bg-[#0F172A] border-t border-gray-100 dark:border-white/5" id="download-section">
-                <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
+                <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
                   <div className="mx-auto max-w-3xl">
                     <h2 className="font-display text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
                       Download Desktop Application
                     </h2>
                     <p className="mt-4 text-sm text-gray-600 dark:text-slate-300">
-                      Get the latest build for Windows via direct download or through the Microsoft Store.
+                      Choose your platform to download the latest version (v1.0.0) or install via the Microsoft Store.
                     </p>
 
-                    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                      {/* Option 1: Direct Windows Setup */}
-                      <div className="rounded-2xl border border-sky-300 bg-sky-50/10 p-6 dark:border-sky-500/30 dark:bg-white/5 flex flex-col justify-between">
+                    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 text-left">
+                      {/* Windows Setup */}
+                      <div className="rounded-2xl border border-sky-300 bg-sky-50/10 p-5 dark:border-sky-500/30 dark:bg-white/5 flex flex-col justify-between">
                         <div>
-                          <h3 className="font-bold text-sm text-gray-900 dark:text-white">Unified Windows Installer</h3>
-                          <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">Direct Executable (.exe) setup for Standard & Lifetime plans</p>
+                          <div className="flex items-center gap-2 mb-2">
+                            <Laptop className="h-5 w-5 text-sky-500" />
+                            <h3 className="font-bold text-sm text-gray-900 dark:text-white">Windows</h3>
+                          </div>
+                          <p className="text-[11px] text-gray-500 dark:text-slate-400">Standard Executable installer (.exe)</p>
                         </div>
                         <a
-                          href={UNIFIED_SETUP_DOWNLOAD_URL}
+                          href={WIN_DOWNLOAD_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-6 inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-sky-600 hover:bg-sky-500 transition duration-200 shadow-sm"
+                          className="mt-6 inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-sky-600 hover:bg-sky-500 transition duration-200 shadow-sm"
                         >
                           <Download className="h-4 w-4" />
-                          <span>Download Windows Setup (v1.0.2)</span>
+                          <span>Windows (.exe)</span>
                         </a>
                       </div>
 
-                      {/* Option 2: Microsoft Store */}
-                      <div className="rounded-2xl border border-emerald-300 bg-emerald-50/10 p-6 dark:border-emerald-500/30 dark:bg-white/5 flex flex-col justify-between">
+                      {/* macOS DMG */}
+                      <div className="rounded-2xl border border-purple-300 bg-purple-50/10 p-5 dark:border-purple-500/30 dark:bg-white/5 flex flex-col justify-between">
                         <div>
-                          <h3 className="font-bold text-sm text-gray-900 dark:text-white">Microsoft Store</h3>
-                          <p className="text-[11px] text-gray-500 dark:text-slate-400 mt-2">Official Windows Store app listing with automatic background updates</p>
+                          <div className="flex items-center gap-2 mb-2">
+                            <Apple className="h-5 w-5 text-purple-400" />
+                            <h3 className="font-bold text-sm text-gray-900 dark:text-white">macOS</h3>
+                          </div>
+                          <p className="text-[11px] text-gray-500 dark:text-slate-400">Apple Silicon & Intel Disk Image (.dmg)</p>
+                        </div>
+                        <a
+                          href={MAC_DOWNLOAD_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-6 inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-purple-600 hover:bg-purple-500 transition duration-200 shadow-sm"
+                        >
+                          <Download className="h-4 w-4" />
+                          <span>macOS (.dmg)</span>
+                        </a>
+                      </div>
+
+                      {/* Linux AppImage */}
+                      <div className="rounded-2xl border border-orange-300 bg-orange-50/10 p-5 dark:border-orange-500/30 dark:bg-white/5 flex flex-col justify-between">
+                        <div>
+                          <div className="flex items-center gap-2 mb-2">
+                            <Terminal className="h-5 w-5 text-orange-400" />
+                            <h3 className="font-bold text-sm text-gray-900 dark:text-white">Linux</h3>
+                          </div>
+                          <p className="text-[11px] text-gray-500 dark:text-slate-400">Universal Linux binary (.AppImage)</p>
+                        </div>
+                        <a
+                          href={LINUX_DOWNLOAD_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-6 inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-orange-600 hover:bg-orange-500 transition duration-200 shadow-sm"
+                        >
+                          <Download className="h-4 w-4" />
+                          <span>Linux (.AppImage)</span>
+                        </a>
+                      </div>
+
+                      {/* Microsoft Store */}
+                      <div className="rounded-2xl border border-emerald-300 bg-emerald-50/10 p-5 dark:border-emerald-500/30 dark:bg-white/5 flex flex-col justify-between">
+                        <div>
+                          <div className="flex items-center gap-2 mb-2">
+                            <Store className="h-5 w-5 text-emerald-400" />
+                            <h3 className="font-bold text-sm text-gray-900 dark:text-white">MS Store</h3>
+                          </div>
+                          <p className="text-[11px] text-gray-500 dark:text-slate-400">Auto-updating Windows app listing</p>
                         </div>
                         <a
                           href={MS_STORE_WEB_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-6 inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition duration-200 shadow-sm"
+                          className="mt-6 inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition duration-200 shadow-sm"
                         >
                           <Store className="h-4 w-4" />
-                          <span>Get from Microsoft Store</span>
+                          <span>Microsoft Store</span>
                         </a>
                       </div>
                     </div>
+
                   </div>
                 </div>
               </section>
