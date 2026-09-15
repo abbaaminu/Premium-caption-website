@@ -10,7 +10,7 @@ import { ShieldAlert, Cpu, Download, ArrowRight, HelpCircle, Laptop, Key, Refres
 import { motion, AnimatePresence } from 'motion/react';
 
 // Direct Download & Store URLs (matching release assets v1.0.0)
-const WIN_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-Setup-v1.0.0.exe";
+const WIN_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/PremiumLiveCaptionPlayer-Setup.exe";
 const MAC_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-macOS.dmg";
 const LINUX_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-Linux.AppImage";
 const MS_STORE_WEB_URL = "https://apps.microsoft.com/detail/9MWH9VJ9QR2R";
