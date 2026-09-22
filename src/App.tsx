@@ -6,7 +6,7 @@ import Features from './components/Features';
 import Pricing from './components/Pricing';
 import Legal from './components/Legal';
 import Footer from './components/Footer';
-import { ShieldAlert, Cpu, Download, ArrowRight, HelpCircle, Laptop, Key, RefreshCw, FileCode, CheckCircle, Store, Apple, Terminal } from 'lucide-react';
+import { Download, HelpCircle, Laptop, CheckCircle, Store, Apple, Terminal } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 // Direct Download & Store URLs (matching release assets v1.0.0)
@@ -78,7 +78,14 @@ export default function App() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <Hero navigateTo={navigateTo} />
+              {/* Pass download URLs directly into Hero */}
+              <Hero 
+                navigateTo={navigateTo}
+                winUrl={WIN_DOWNLOAD_URL}
+                macUrl={MAC_DOWNLOAD_URL}
+                linuxUrl={LINUX_DOWNLOAD_URL}
+              />
+              
               <Features />
 
               {/* Technical Specifications Section */}
