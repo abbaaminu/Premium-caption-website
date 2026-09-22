@@ -7,7 +7,14 @@ import appLogoImg from '../assets/images/app_logo_icon_1784821784642.jpg';
 
 interface HeroProps {
   navigateTo: (path: RoutePath) => void;
+  winUrl?: string;
+  macUrl?: string;
+  linuxUrl?: string;
 }
+
+const DEFAULT_WIN_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-Setup-v1.0.0.exe";
+const DEFAULT_MAC_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-macOS.dmg";
+const DEFAULT_LINUX_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-Linux.AppImage";
 
 const MOCK_VIDEOS = [
   {
@@ -35,7 +42,7 @@ const MOCK_VIDEOS = [
   }
 ];
 
-export default function Hero({ navigateTo }: HeroProps) {
+export default function Hero({ navigateTo, winUrl, macUrl, linuxUrl }: HeroProps) {
   const [downloading, setDownloading] = useState(false);
   const [downloadSuccess, setDownloadSuccess] = useState(false);
   const [activeVideoIdx, setActiveVideoIdx] = useState(0);
@@ -58,19 +65,40 @@ export default function Hero({ navigateTo }: HeroProps) {
     return () => clearInterval(interval);
   }, [isPlaying, activeVideoIdx, activeVideo.speechLines.length]);
 
+  const getDownloadUrl = () => {
+    switch (selectedOS) {
+      case 'mac':
+        return macUrl || DEFAULT_MAC_URL;
+      case 'linux':
+        return linuxUrl || DEFAULT_LINUX_URL;
+      case 'win':
+      default:
+        return winUrl || DEFAULT_WIN_URL;
+    }
+  };
+
   const handleDownload = (e: React.MouseEvent) => {
     e.preventDefault();
     setDownloading(true);
-    
-  const UNIFIED_SETUP_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player/releases/latest/download/PremiumLiveCaptionPlayer-Setup.exe";
-  const MS_STORE_WEB_URL = "https://apps.microsoft.com/detail/9MWH9VJ9QR2R";
+
+    const downloadTarget = getDownloadUrl();
+
+    // Trigger browser file download programmatically
+    const link = document.createElement('a');
+    link.href = downloadTarget;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
     setTimeout(() => {
       setDownloading(false);
       setDownloadSuccess(true);
-      
+
       // Reset success notice after 5 seconds
       setTimeout(() => setDownloadSuccess(false), 5000);
-    }, 1000);
+    }, 800);
   };
 
   return (
@@ -407,4 +435,3 @@ export default function Hero({ navigateTo }: HeroProps) {
     </section>
   );
 }
-
