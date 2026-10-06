@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import AppSumoRedeem from '../AppSumoRedeem'; // Import fixed for Vercel build
+import AppSumoRedeem from '../AppSumoRedeem';
 
-// Extend the Window interface to recognize both Paddle and Paystack SDKs
 declare global {
   interface Window {
     Paddle?: any;
@@ -45,7 +44,7 @@ const Pricing: React.FC = () => {
     };
   }, []);
 
-  // --- PAYSTACK CHECKOUT HANDLER (Monthly Alternative) ---
+  // --- PAYSTACK CHECKOUT HANDLER ---
   const handlePaystackCheckout = () => {
     if (!email) {
       alert("Please enter your email address first.");
@@ -73,7 +72,7 @@ const Pricing: React.FC = () => {
     handler.openIframe();
   };
 
-  // --- PADDLE CHECKOUT HANDLER (Primary Global) ---
+  // --- PADDLE CHECKOUT HANDLER ---
   const handleOpenPaddleCheckout = (priceId: string) => {
     if (!window.Paddle) {
       alert("Paddle SDK failed to load. Please check your network connection and try again.");
@@ -96,7 +95,7 @@ const Pricing: React.FC = () => {
       <h1 style={{ color: '#22c55e', marginBottom: '10px' }}>Upgrade to Premium</h1>
       <p style={{ color: '#94a3b8', marginBottom: '30px' }}>Unlock the full potential of Live Caption Player.</p>
 
-      {/* Global Email Input required for Paystack & prefilled for Paddle */}
+      {/* Global Email Input */}
       <div style={{ marginBottom: '40px' }}>
         <input 
           type="email" 
@@ -117,10 +116,19 @@ const Pricing: React.FC = () => {
         />
       </div>
 
-      {/* Pricing Cards Grid */}
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap', alignItems: 'stretch' }}>
+      {/* 3 Cards Container in 1 Line */}
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        gap: '24px', 
+        flexWrap: 'wrap', 
+        alignItems: 'stretch',
+        maxWidth: '1100px',
+        margin: '0 auto',
+        paddingBottom: '40px'
+      }}>
         
-        {/* Monthly Plan Card (Paddle Primary + Paystack Secondary) */}
+        {/* Card 1: Monthly Plan */}
         <div style={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '16px', padding: '32px', width: '100%', maxWidth: '320px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
             <h3>Monthly Plan</h3>
@@ -129,15 +137,13 @@ const Pricing: React.FC = () => {
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {/* Primary: Paddle Monthly */}
             <button 
-              onClick={() => handleOpenPaddleCheckout('pri_01kwfsfg8m7zf71yznd9c8t0ra')} // Replace with your Paddle Monthly Price ID
+              onClick={() => handleOpenPaddleCheckout('pri_01kwfsfg8m7zf71yznd9c8t0ra')}
               style={{ backgroundColor: '#ffffff', color: '#0f172a', padding: '12px 20px', border: 'none', borderRadius: '8px', cursor: 'pointer', width: '100%', fontWeight: 'bold' }}
             >
               Subscribe via Paddle
             </button>
 
-            {/* Secondary: Paystack Monthly */}
             <button 
               onClick={handlePaystackCheckout}
               style={{ backgroundColor: '#0ea5e9', color: 'white', padding: '12px 20px', border: 'none', borderRadius: '8px', cursor: 'pointer', width: '100%', fontWeight: 'bold' }}
@@ -147,7 +153,7 @@ const Pricing: React.FC = () => {
           </div>
         </div>
 
-        {/* Lifetime Plan Card (Paddle) */}
+        {/* Card 2: Lifetime Plan */}
         <div style={{ backgroundColor: '#1e293b', border: '2px solid #22c55e', borderRadius: '16px', padding: '32px', width: '100%', maxWidth: '320px', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div style={{ position: 'absolute', top: '-12px', left: '50%', transform: 'translateX(-50%)', backgroundColor: '#22c55e', color: '#0f172a', padding: '4px 12px', borderRadius: '12px', fontSize: '12px', fontWeight: 'bold' }}>
             BEST VALUE
@@ -167,19 +173,11 @@ const Pricing: React.FC = () => {
           </button>
         </div>
 
-      </div>
-
-      {/* Embedded AppSumo Redemption Section */}
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        width: '100%',
-        marginTop: '40px', /* Closes the massive gap below the cards */
-        paddingBottom: '40px' 
-      }}>
-        <div style={{ width: '100%', maxWidth: '450px' }}>
+        {/* Card 3: AppSumo Redemption (Now in the same flex container row) */}
+        <div style={{ width: '100%', maxWidth: '320px', display: 'flex', flexDirection: 'column' }}>
           <AppSumoRedeem />
         </div>
+
       </div>
 
     </div>
