@@ -242,7 +242,7 @@ export default function Legal({ view, navigateTo }: LegalProps) {
                     <span>AppSumo Purchases (60-Day Window)</span>
                   </div>
                   <p className="text-xs text-sky-800 dark:text-slate-300 leading-relaxed">
-                    If you purchased your license through <strong>AppSumo</strong>, refund requests must be initiated directly through your <strong>AppSumo Account Dashboard</strong> under your purchase history within 14 days of purchase. Once processed by AppSumo, your associated license key will be automatically deactivated.
+                    If you purchased your license through <strong>AppSumo</strong>, refund requests must be initiated directly through your <strong>AppSumo Account Dashboard</strong> under your purchase history within 60 days of purchase. Once processed by AppSumo, your associated license key will be automatically deactivated.
                   </p>
                 </div>
 
