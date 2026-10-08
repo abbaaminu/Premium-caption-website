@@ -239,7 +239,7 @@ export default function Legal({ view, navigateTo }: LegalProps) {
                 <div className="rounded-2xl border border-sky-200 bg-sky-50/50 p-5 dark:border-sky-500/20 dark:bg-white/5">
                   <div className="flex items-center gap-2 mb-2 text-sky-900 dark:text-sky-300 font-bold">
                     <Tag className="h-4 w-4 text-sky-600 dark:text-sky-400" />
-                    <span>AppSumo Purchases (14-Day Window)</span>
+                    <span>AppSumo Purchases (60-Day Window)</span>
                   </div>
                   <p className="text-xs text-sky-800 dark:text-slate-300 leading-relaxed">
                     If you purchased your license through <strong>AppSumo</strong>, refund requests must be initiated directly through your <strong>AppSumo Account Dashboard</strong> under your purchase history within 14 days of purchase. Once processed by AppSumo, your associated license key will be automatically deactivated.
