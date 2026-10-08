@@ -12,9 +12,10 @@ interface HeroProps {
   linuxUrl?: string;
 }
 
-const DEFAULT_WIN_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-Setup-v1.0.0.exe";
-const DEFAULT_MAC_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-macOS.dmg";
-const DEFAULT_LINUX_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-Linux.AppImage";
+const WIN_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/download/v1.0.1/LiveCaptionPlayer-Setup-v1.0.0.exe";
+const MAC_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/download/v1.0.1/LiveCaptionPlayer-macOS.dmg";
+const LINUX_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/download/v1.0.1/LiveCaptionPlayer-Linux.AppImage";
+
 
 const MOCK_MEDIA = [
   {
