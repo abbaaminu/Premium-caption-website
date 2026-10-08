@@ -6,10 +6,10 @@ import Features from './components/Features';
 import Pricing from './components/Pricing';
 import Legal from './components/Legal';
 import Footer from './components/Footer';
-import { Download, HelpCircle, Laptop, CheckCircle, Store, Apple, Terminal } from 'lucide-react';
+import { Download, HelpCircle, Laptop, CheckCircle, Store, Apple, Terminal, Music, FileVideo, ShieldCheck, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-// Direct Download & Store URLs (matching release assets v1.0.0)
+// Direct Download & Store URLs
 const WIN_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-Setup-v1.0.0.exe";
 const MAC_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-macOS.dmg";
 const LINUX_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-Linux.AppImage";
@@ -96,27 +96,27 @@ export default function App() {
                     <div className="lg:col-span-5 space-y-6">
                       <div className="inline-flex items-center gap-1.5 rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700 dark:bg-white/10 dark:text-sky-300">
                         <Laptop className="h-3.5 w-3.5" />
-                        <span>PySide6 Desktop Application Core</span>
+                        <span>PySide6 Desktop Core & Vosk AI</span>
                       </div>
                       <h2 className="font-display text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        VLC Subtitles Timing Pipe & Offline Models
+                        Offline AI Speech Processing for Video & Audio
                       </h2>
                       <p className="text-sm text-gray-600 dark:text-slate-300 leading-relaxed">
-                        Premium Live Caption Player operates by spawning a lightweight IPC host on your desktop. When you start VLC, our PySide6 controller hooks the playhead timestamp, translating vocal recordings on the fly.
+                        Live Caption Player converts spoken words into live subtitles directly on your CPU. Whether you're playing movies, podcasts, voice notes, or lecture recordings, processing stays completely on your local device.
                       </p>
 
                       <div className="space-y-3 font-mono text-xs text-gray-500 dark:text-slate-400">
                         <div className="flex items-center gap-2.5">
                           <CheckCircle className="h-4 w-4 text-sky-500" />
-                          <span>Vosk API offline model (Eng acoustic matrix: ~45MB)</span>
+                          <span>Full Video support: MP4, MKV, AVI, MOV</span>
                         </div>
                         <div className="flex items-center gap-2.5">
                           <CheckCircle className="h-4 w-4 text-sky-500" />
-                          <span>Timing offsets support manual calibration via sliders</span>
+                          <span>Full Audio support: MP3, WAV, M4A, AAC, FLAC</span>
                         </div>
                         <div className="flex items-center gap-2.5">
                           <CheckCircle className="h-4 w-4 text-sky-500" />
-                          <span>100% private with no cloud servers</span>
+                          <span>100% private offline engine with zero cloud latency</span>
                         </div>
                       </div>
                     </div>
@@ -126,23 +126,23 @@ export default function App() {
                         <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-sky-500">Framework</span>
                         <h4 className="font-display text-base font-bold text-gray-900 dark:text-white mt-1">PySide6 (Qt6 Python)</h4>
                         <p className="text-xs text-gray-500 dark:text-slate-400 mt-2">
-                          Provides a native hardware-accelerated desktop interface with responsive sliders and transparency controllers.
+                          Provides a fast, native desktop user interface with real-time synchronized caption overlays.
                         </p>
                       </div>
 
                       <div className="rounded-xl border border-gray-200 bg-white p-5 dark:border-white/5 dark:bg-white/5">
-                        <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-sky-500">Acoustic Logic</span>
-                        <h4 className="font-display text-base font-bold text-gray-900 dark:text-white mt-1">Vosk Audio Model</h4>
+                        <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-sky-500">Speech Logic</span>
+                        <h4 className="font-display text-base font-bold text-gray-900 dark:text-white mt-1">Local Vosk AI Model</h4>
                         <p className="text-xs text-gray-500 dark:text-slate-400 mt-2">
-                          Local speech recognition engine decoding voice tracks directly from your primary speaker output.
+                          Decodes high-fidelity 16kHz PCM audio feeds in real time without sending data online.
                         </p>
                       </div>
 
                       <div className="rounded-xl border border-gray-200 bg-white p-5 dark:border-white/5 dark:bg-white/5">
-                        <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-sky-500">Playback Pipe</span>
-                        <h4 className="font-display text-base font-bold text-gray-900 dark:text-white mt-1">Dual VLC Sync</h4>
+                        <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-sky-500">Universal Formats</span>
+                        <h4 className="font-display text-base font-bold text-gray-900 dark:text-white mt-1">Video & Audio Media</h4>
                         <p className="text-xs text-gray-500 dark:text-slate-400 mt-2">
-                          Auto-captures current video timeline over local socket parameters. Works seamlessly with VLC and MPV.
+                          Transcribes video files as well as podcasts, interviews, lectures, and voice memos instantly.
                         </p>
                       </div>
 
@@ -150,7 +150,7 @@ export default function App() {
                         <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-sky-500">Cross-Platform</span>
                         <h4 className="font-display text-base font-bold text-gray-900 dark:text-white mt-1">Windows, macOS & Linux</h4>
                         <p className="text-xs text-gray-500 dark:text-slate-400 mt-2">
-                          Precompiled native binaries for Windows (.exe), macOS (.dmg), and Linux (.AppImage).
+                          Precompiled native installers for Windows (.exe), macOS (.dmg), and Linux (.AppImage).
                         </p>
                       </div>
                     </div>
@@ -167,7 +167,7 @@ export default function App() {
                       Download Desktop Application
                     </h2>
                     <p className="mt-4 text-sm text-gray-600 dark:text-slate-300">
-                      Choose your platform to download the latest version (v1.0.0) or install via the Microsoft Store.
+                      Choose your platform to download the latest desktop version or install directly via Microsoft Store.
                     </p>
 
                     <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 text-left">
@@ -178,7 +178,7 @@ export default function App() {
                             <Laptop className="h-5 w-5 text-sky-500" />
                             <h3 className="font-bold text-sm text-gray-900 dark:text-white">Windows</h3>
                           </div>
-                          <p className="text-[11px] text-gray-500 dark:text-slate-400">Standard Executable installer (.exe)</p>
+                          <p className="text-[11px] text-gray-500 dark:text-slate-400">Executable installer (.exe)</p>
                         </div>
                         <a
                           href={WIN_DOWNLOAD_URL}
@@ -198,7 +198,7 @@ export default function App() {
                             <Apple className="h-5 w-5 text-purple-400" />
                             <h3 className="font-bold text-sm text-gray-900 dark:text-white">macOS</h3>
                           </div>
-                          <p className="text-[11px] text-gray-500 dark:text-slate-400">Apple Silicon & Intel Disk Image (.dmg)</p>
+                          <p className="text-[11px] text-gray-500 dark:text-slate-400">Apple Silicon & Intel (.dmg)</p>
                         </div>
                         <a
                           href={MAC_DOWNLOAD_URL}
@@ -218,7 +218,7 @@ export default function App() {
                             <Terminal className="h-5 w-5 text-orange-400" />
                             <h3 className="font-bold text-sm text-gray-900 dark:text-white">Linux</h3>
                           </div>
-                          <p className="text-[11px] text-gray-500 dark:text-slate-400">Universal Linux binary (.AppImage)</p>
+                          <p className="text-[11px] text-gray-500 dark:text-slate-400">Universal binary (.AppImage)</p>
                         </div>
                         <a
                           href={LINUX_DOWNLOAD_URL}
@@ -238,7 +238,7 @@ export default function App() {
                             <Store className="h-5 w-5 text-emerald-400" />
                             <h3 className="font-bold text-sm text-gray-900 dark:text-white">MS Store</h3>
                           </div>
-                          <p className="text-[11px] text-gray-500 dark:text-slate-400">Auto-updating Windows app listing</p>
+                          <p className="text-[11px] text-gray-500 dark:text-slate-400">Auto-updating Windows listing</p>
                         </div>
                         <a
                           href={MS_STORE_WEB_URL}
@@ -262,15 +262,19 @@ export default function App() {
                   <div className="text-center max-w-3xl mx-auto mb-12">
                     <HelpCircle className="h-8 w-8 text-sky-500 mx-auto" />
                     <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
-                      Checkout & Billing FAQs
+                      Checkout & Product FAQs
                     </h2>
                   </div>
 
                   <div className="space-y-6">
                     {[
                       {
+                        q: "What media file formats are supported?",
+                        a: "Live Caption Player supports popular video and audio files, including MP4, MKV, AVI, MOV, MP3, WAV, M4A, AAC, and FLAC."
+                      },
+                      {
                         q: "What is the difference between Monthly and Lifetime access?",
-                        a: "Monthly access costs $1/month and can be canceled anytime. Lifetime access is a $19 one-time payment that gives you permanent access with no future recurring charges."
+                        a: "Monthly access costs $1/month and can be canceled anytime. Lifetime access is a $19 one-time payment that gives you permanent access with no recurring charges."
                       },
                       {
                         q: "How are payments processed?",
@@ -278,7 +282,7 @@ export default function App() {
                       },
                       {
                         q: "How does local speech processing work?",
-                        a: "All speech recognition runs locally using Vosk neural network models on your CPU. No audio or media data is ever uploaded to external cloud servers."
+                        a: "All speech recognition runs locally using Vosk neural network models on your device. No audio or media files are ever uploaded to cloud servers."
                       }
                     ].map((faq, idx) => (
                       <div key={idx} className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-white/5 dark:bg-white/5">
