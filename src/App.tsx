@@ -9,11 +9,12 @@ import Footer from './components/Footer';
 import { Download, HelpCircle, Laptop, CheckCircle, Store, Apple, Terminal, Music, FileVideo, ShieldCheck, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-// Direct Download & Store URLs
-const WIN_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-Setup-v1.0.0.exe";
-const MAC_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-macOS.dmg";
-const LINUX_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-Linux.AppImage";
+// Direct Download & Store URLs (v1.0.1 Release)
+const WIN_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/download/v1.0.1/LiveCaptionPlayer-Setup-v1.0.0.exe";
+const MAC_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/download/v1.0.1/LiveCaptionPlayer-macOS.dmg";
+const LINUX_DOWNLOAD_URL = "https://github.com/abbaaminu/caption-player-releases/releases/download/v1.0.1/LiveCaptionPlayer-Linux.AppImage";
 const MS_STORE_WEB_URL = "https://apps.microsoft.com/detail/9MWH9VJ9QR2R";
+
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState<RoutePath>('home');
