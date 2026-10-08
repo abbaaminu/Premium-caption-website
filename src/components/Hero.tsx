@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Sparkles, Languages, MonitorPlay, Zap, ArrowRight, Play, Pause, RefreshCw, Volume2, Cpu, Eye, Image as ImageIcon } from 'lucide-react';
+import { Download, Sparkles, Languages, MonitorPlay, Zap, ArrowRight, Play, Pause, RefreshCw, Volume2, Cpu, Eye, Image as ImageIcon, Music, Video } from 'lucide-react';
 import { RoutePath } from '../types';
 import { motion } from 'motion/react';
 import heroBannerImg from '../assets/images/caption_player_hero_1784821770249.jpg';
@@ -16,28 +16,30 @@ const DEFAULT_WIN_URL = "https://github.com/abbaaminu/caption-player-releases/re
 const DEFAULT_MAC_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-macOS.dmg";
 const DEFAULT_LINUX_URL = "https://github.com/abbaaminu/caption-player-releases/releases/latest/download/LiveCaptionPlayer-Linux.AppImage";
 
-const MOCK_VIDEOS = [
+const MOCK_MEDIA = [
   {
-    title: "AI_Speech_Recognition_Demo.mkv",
-    speaker: "Dr. Elena Vance (Speech Tech Lead)",
+    title: "Tech_Podcast_Interview.mp3",
+    type: "audio",
+    speaker: "Adam (Indie Founder)",
     duration: "02:45",
     speechLines: [
-      { text: "Welcome back! Today we are introducing real-time offline transcription.", translation: "¡Bienvenidos de nuevo! Hoy presentamos la transcripción offline en tiempo real.", timestamp: "0:02" },
-      { text: "Our application connects speech tracking to VLC with zero audio latency.", translation: "Nuestra aplicación conecta el seguimiento de voz a VLC con cero latencia de audio.", timestamp: "0:08" },
-      { text: "All processes run completely locally on your hardware using Vosk models.", translation: "Todos los procesos se ejecutan completamente local en su hardware usando modelos Vosk.", timestamp: "0:14" },
-      { text: "No voice logs or media data are ever sent to remote cloud servers.", translation: "Nunca se envían registros de voz ni datos multimedia a servidores remotos.", timestamp: "0:20" },
-      { text: "Let's demonstrate translation sync across active PySide6 interfaces now.", translation: "Demostremos ahora la sincronización de traducción en interfaces activas de PySide6.", timestamp: "0:26" }
+      { text: "Welcome back! Today we are introducing real-time offline speech transcription.", translation: "¡Bienvenidos de nuevo! Hoy presentamos la transcripción offline en tiempo real.", timestamp: "0:02" },
+      { text: "Our application transcribes both video and MP3 audio with zero latency.", translation: "Nuestra aplicación transcribe tanto video como audio MP3 con cero latencia.", timestamp: "0:08" },
+      { text: "All processing runs completely locally on your machine using Vosk models.", translation: "Todo el procesamiento se ejecuta completamente local en su máquina usando modelos Vosk.", timestamp: "0:14" },
+      { text: "No audio recordings or media data are ever uploaded to remote cloud servers.", translation: "Nunca se suben grabaciones de audio ni datos multimedia a servidores remotos.", timestamp: "0:20" },
+      { text: "Enjoy seamless captions for podcasts, voice notes, and video files.", translation: "Disfruta de subtítulos fluidos para podcasts, notas de voz y archivos de video.", timestamp: "0:26" }
     ]
   },
   {
-    title: "VLC_Subtitles_Sync_Test.avi",
-    speaker: "Mark Fletcher (Lead Developer)",
+    title: "AI_Speech_Recognition_Demo.mkv",
+    type: "video",
+    speaker: "Dr. Vance (Speech Tech Lead)",
     duration: "01:15",
     speechLines: [
-      { text: "Testing VLC playback pipeline for automatic SRT subtitle injection.", translation: "Probando el canal de reproducción VLC para la inyección automática de subtítulos SRT.", timestamp: "0:01" },
-      { text: "VLC is now playing. Notice the dual-engine sync tracking the playhead.", translation: "VLC se está reproduciendo. Observe el seguimiento de sincronización del motor dual.", timestamp: "0:06" },
-      { text: "Frame accurate offsets can be adjusted dynamically in the PySide6 controller.", translation: "Los desfases precisos de fotogramas se pueden ajustar dinámicamente en el controlador PySide6.", timestamp: "0:11" },
-      { text: "This secures offline caption display even during active scrubbing.", translation: "Esto asegura la visualización offline de subtítulos incluso durante el desplazamiento activo.", timestamp: "0:17" }
+      { text: "Testing video playback pipeline for automatic subtitle generation.", translation: "Probando el canal de reproducción de video para generación automática de subtítulos.", timestamp: "0:01" },
+      { text: "Notice the real-time caption overlay tracking speech synchronously.", translation: "Observe la superposición de subtítulos en tiempo real siguiendo el habla sincrónicamente.", timestamp: "0:06" },
+      { text: "Subtitles can be customized dynamically directly on your desktop.", translation: "Los subtítulos se pueden personalizar dinámicamente directamente en su escritorio.", timestamp: "0:11" },
+      { text: "This secures offline caption display even during active media scrubbing.", translation: "Esto asegura la visualización offline de subtítulos incluso durante el desplazamiento activo.", timestamp: "0:17" }
     ]
   }
 ];
@@ -45,25 +47,25 @@ const MOCK_VIDEOS = [
 export default function Hero({ navigateTo, winUrl, macUrl, linuxUrl }: HeroProps) {
   const [downloading, setDownloading] = useState(false);
   const [downloadSuccess, setDownloadSuccess] = useState(false);
-  const [activeVideoIdx, setActiveVideoIdx] = useState(0);
+  const [activeMediaIdx, setActiveMediaIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentLineIdx, setCurrentLineIdx] = useState(0);
   const [targetLang, setTargetLang] = useState<'es' | 'en'>('es');
   const [selectedOS, setSelectedOS] = useState<'win' | 'mac' | 'linux'>('win');
   const [heroViewMode, setHeroViewMode] = useState<'simulation' | 'screenshot'>('screenshot');
 
-  const activeVideo = MOCK_VIDEOS[activeVideoIdx];
+  const activeMedia = MOCK_MEDIA[activeMediaIdx];
 
   // Loop through lines in mockup player
   useEffect(() => {
     if (!isPlaying) return;
 
     const interval = setInterval(() => {
-      setCurrentLineIdx((prev) => (prev + 1) % activeVideo.speechLines.length);
+      setCurrentLineIdx((prev) => (prev + 1) % activeMedia.speechLines.length);
     }, 4500);
 
     return () => clearInterval(interval);
-  }, [isPlaying, activeVideoIdx, activeVideo.speechLines.length]);
+  }, [isPlaying, activeMediaIdx, activeMedia.speechLines.length]);
 
   const getDownloadUrl = () => {
     switch (selectedOS) {
@@ -135,21 +137,21 @@ export default function Hero({ navigateTo, winUrl, macUrl, linuxUrl }: HeroProps
             {/* Tagline */}
             <div className="inline-flex items-center gap-2 rounded-full border border-sky-200/80 bg-sky-50/50 px-3.5 py-1 text-xs font-semibold text-sky-700 transition-colors dark:border-white/10 dark:bg-white/5 dark:text-sky-300">
               <Sparkles className="h-3.5 w-3.5 text-sky-500" />
-              <span>Offline AI Speech Tracking & Subtitles</span>
+              <span>100% Offline AI Video & Audio Captions</span>
             </div>
 
             {/* Headline */}
             <h1 className="mt-5 font-display text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-5xl lg:leading-[1.15]">
-              Real-time Subtitles synced with{' '}
+              Real-time Captions for{' '}
               <span className="text-gradient">
-                VLC & MPV
+                Video & Audio
               </span>{' '}
-              Offline
+              Files Offline
             </h1>
 
             {/* Sub-headline */}
             <p className="mt-5 text-base leading-relaxed text-gray-600 dark:text-slate-300 sm:text-lg">
-              Premium Live Caption Player tracks speech audio locally using the high-performance Vosk engine and automatically synchronizes translated live subtitles into your native VLC player. Built with PySide6 for local power.
+              Live Caption Player automatically transcribes local video (MP4, MKV, AVI, MOV) and audio files (MP3, WAV, M4A, FLAC) in real time with complete privacy, zero cloud API fees, and zero latency.
             </p>
 
             {/* OS selection */}
@@ -213,7 +215,7 @@ export default function Hero({ navigateTo, winUrl, macUrl, linuxUrl }: HeroProps
                 className="flex w-full sm:w-auto items-center justify-center gap-1.5 rounded-xl border border-gray-300 bg-white px-6 py-3.5 font-semibold text-gray-700 shadow-sm hover:bg-gray-50 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:bg-white/10 transition-all"
                 id="hero-view-pricing"
               >
-                <span>View $1/Month Premium</span>
+                <span>View $19 Lifetime Deal</span>
                 <ArrowRight className="h-4 w-4" />
               </button>
             </div>
@@ -236,12 +238,12 @@ export default function Hero({ navigateTo, winUrl, macUrl, linuxUrl }: HeroProps
               <div className="flex items-center justify-center lg:justify-start gap-4 text-xs font-mono text-gray-500 dark:text-slate-400">
                 <span className="flex items-center gap-1">
                   <Cpu className="h-3.5 w-3.5 text-sky-400" />
-                  100% Offline Speech tracking
+                  100% Offline AI Engine
                 </span>
                 <span>•</span>
                 <span className="flex items-center gap-1">
-                  <Languages className="h-3.5 w-3.5 text-indigo-400" />
-                  No Cloud Data Pipelines
+                  <Music className="h-3.5 w-3.5 text-indigo-400" />
+                  Video + MP3 Audio
                 </span>
               </div>
             </div>
@@ -258,7 +260,7 @@ export default function Hero({ navigateTo, winUrl, macUrl, linuxUrl }: HeroProps
                   <div className="h-3 w-3 rounded-full bg-amber-400" />
                   <div className="h-3 w-3 rounded-full bg-green-400" />
                   <span className="ml-2 font-mono text-xs font-medium text-gray-400 dark:text-slate-400 hidden sm:inline">
-                    PySide6 Qt6 Interface Engine
+                    Live Caption Player (PySide6 Qt6)
                   </span>
                 </div>
 
@@ -304,11 +306,11 @@ export default function Hero({ navigateTo, winUrl, macUrl, linuxUrl }: HeroProps
                       <img src={appLogoImg} alt="Logo" className="h-8 w-8 rounded-lg object-cover ring-1 ring-sky-400/40" referrerPolicy="no-referrer" />
                       <div>
                         <span className="text-xs font-bold text-sky-400 font-mono">Live Subtitles Overlay</span>
-                        <p className="text-[11px] text-slate-300">Vosk Speech Engine • 100% Offline Processing</p>
+                        <p className="text-[11px] text-slate-300">Video + MP3 Audio • 100% Offline Processing</p>
                       </div>
                     </div>
                     <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono">
-                      Active Sync
+                      Active AI Engine
                     </span>
                   </div>
                 </div>
@@ -319,30 +321,34 @@ export default function Hero({ navigateTo, winUrl, macUrl, linuxUrl }: HeroProps
                   {/* Media Player Header */}
                   <div className="flex items-center justify-between z-10 bg-black/45 backdrop-blur-xs p-2 rounded-lg border border-white/5">
                     <div className="flex items-center gap-2">
-                      <MonitorPlay className="h-4 w-4 text-sky-400" />
-                      <span className="text-xs font-mono font-bold text-white max-w-[200px] truncate">{activeVideo.title}</span>
+                      {activeMedia.type === 'audio' ? (
+                        <Music className="h-4 w-4 text-emerald-400" />
+                      ) : (
+                        <MonitorPlay className="h-4 w-4 text-sky-400" />
+                      )}
+                      <span className="text-xs font-mono font-bold text-white max-w-[200px] truncate">{activeMedia.title}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <button 
                         onClick={() => {
-                          setActiveVideoIdx((prev) => (prev + 1) % MOCK_VIDEOS.length);
+                          setActiveMediaIdx((prev) => (prev + 1) % MOCK_MEDIA.length);
                           setCurrentLineIdx(0);
                         }}
                         className="text-[10px] bg-white/10 hover:bg-white/20 text-white rounded px-2 py-1 font-mono flex items-center gap-1 transition-all"
                         id="mockup-switch-video"
                       >
                         <RefreshCw className="h-2.5 w-2.5" />
-                        Switch File
+                        Switch Format ({activeMedia.type === 'audio' ? 'Video' : 'MP3 Audio'})
                       </button>
-                      <span className="text-[10px] font-mono text-gray-400">{activeVideo.duration}</span>
+                      <span className="text-[10px] font-mono text-gray-400">{activeMedia.duration}</span>
                     </div>
                   </div>
 
                   {/* Subtitle Visualizer Area */}
                   <div className="my-auto flex flex-col items-center justify-center p-6 text-center z-10">
                     <div className="text-gray-500 font-mono text-[10px] uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                      <span className="h-1.5 w-1.5 bg-sky-400 rounded-full animate-ping" />
-                      Speech Tracked (Speaker: {activeVideo.speaker})
+                      <span className="h-1.5 w-1.5 bg-emerald-400 rounded-full animate-ping" />
+                      Speech Tracking Active ({activeMedia.speaker})
                     </div>
                     
                     {/* Speech waveform graphics */}
@@ -362,14 +368,14 @@ export default function Hero({ navigateTo, winUrl, macUrl, linuxUrl }: HeroProps
                     <div className="bg-black/80 backdrop-blur-md rounded-xl p-4 border border-white/10 shadow-lg max-w-lg w-full transition-all duration-300 min-h-[90px] flex flex-col justify-center">
                       {/* Source English */}
                       <p className="text-sm font-medium text-white mb-2 leading-relaxed">
-                        "{activeVideo.speechLines[currentLineIdx].text}"
+                        "{activeMedia.speechLines[currentLineIdx].text}"
                       </p>
                       
                       {/* Target Translation */}
                       <div className="pt-2 border-t border-white/10 flex items-center gap-1.5 justify-center">
                         <Languages className="h-3.5 w-3.5 text-sky-400 shrink-0" />
                         <p className="text-xs font-semibold text-sky-300 leading-relaxed">
-                          {activeVideo.speechLines[currentLineIdx].translation}
+                          {activeMedia.speechLines[currentLineIdx].translation}
                         </p>
                       </div>
                     </div>
@@ -385,7 +391,7 @@ export default function Hero({ navigateTo, winUrl, macUrl, linuxUrl }: HeroProps
                       >
                         {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
                       </button>
-                      <span className="text-[10px] font-mono text-gray-300">Vosk Offline Speech Tracker v2.4</span>
+                      <span className="text-[10px] font-mono text-gray-300">Vosk Offline Speech Model (16kHz PCM)</span>
                     </div>
 
                     <div className="flex items-center gap-4">
@@ -423,7 +429,7 @@ export default function Hero({ navigateTo, winUrl, macUrl, linuxUrl }: HeroProps
                   {/* Subtitle Sync Offset Display */}
                   <div className="absolute bottom-16 right-4 bg-slate-900/95 backdrop-blur-md rounded border border-sky-500/30 px-2 py-1 flex items-center gap-1.5 z-10 shadow">
                     <Zap className="h-3 w-3 text-yellow-400 animate-pulse" />
-                    <span className="text-[9px] font-mono font-bold text-sky-200">Sync Offset: -0.05s (Dual-VLC Engine)</span>
+                    <span className="text-[9px] font-mono font-bold text-sky-200">Format: {activeMedia.type === 'audio' ? 'Audio Stream (S16N PCM)' : 'Video Sync Stream'}</span>
                   </div>
                 </div>
               )}
